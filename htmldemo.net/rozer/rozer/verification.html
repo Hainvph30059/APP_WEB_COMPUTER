@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Xác thực tài khoản - Hoang Duong Computer</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.png" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/style.min.css" />
+    
+    <style>
+        .verification-container {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
+        
+        .verification-box {
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .verification-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .verification-icon.loading {
+            color: #0d6efd;
+            animation: spin 1s linear infinite;
+        }
+        
+        .verification-icon.success {
+            color: #28a745;
+        }
+        
+        .verification-icon.error {
+            color: #dc3545;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .verification-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .verification-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .verification-btn {
+            display: inline-block;
+            padding: 12px 40px;
+            background: #0F62AC;
+            color: #fff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .verification-btn:hover {
+            background: #0d5495;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(15, 98, 172, 0.3);
+        }
+        
+        .verification-btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        .countdown {
+            font-size: 14px;
+            color: #999;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body ng-app="HoangDuongApp" ng-controller="VerificationController">
+    <!-- Header Section (Simplified) -->
+    <header class="header-wrapper">
+        <div class="header-top bg-white ptb-25px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="logo">
+                            <a href="../index.html">
+                                <img src="assets/images/logo/computer.jpg" alt="Logo" style="max-height: 60px;" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Verification Content -->
+    <div class="verification-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-10">
+                    <div class="verification-box">
+                        <!-- Loading State -->
+                        <div ng-if="status === 'loading'">
+                            <div class="verification-icon loading">
+                                <i class="ion-load-c"></i>
+                            </div>
+                            <h2 class="verification-title">Đang xác thực...</h2>
+                            <p class="verification-message">
+                                Vui lòng chờ trong giây lát, chúng tôi đang xác thực tài khoản của bạn.
+                            </p>
+                        </div>
+
+                        <!-- Success State -->
+                        <div ng-if="status === 'success'">
+                            <div class="verification-icon success">
+                                <i class="ion-checkmark-circled"></i>
+                            </div>
+                            <h2 class="verification-title">Xác thực thành công!</h2>
+                            <p class="verification-message">
+                                Tài khoản của bạn đã được kích hoạt thành công.<br>
+                                Bạn có thể đăng nhập ngay bây giờ.
+                            </p>
+                            <a href="login.html" class="verification-btn">
+                                Đăng nhập ngay
+                            </a>
+                            <p class="countdown" ng-if="countdown > 0">
+                                Tự động chuyển hướng sau {{countdown}} giây...
+                            </p>
+                        </div>
+
+                        <!-- Error State -->
+                        <div ng-if="status === 'error'">
+                            <div class="verification-icon error">
+                                <i class="ion-close-circled"></i>
+                            </div>
+                            <h2 class="verification-title">Xác thực thất bại!</h2>
+                            <p class="verification-message">
+                                {{errorMessage}}
+                            </p>
+                            <a href="login.html" class="verification-btn">
+                                Quay lại đăng nhập
+                            </a>
+                        </div>
+
+                        <!-- Invalid Link State -->
+                        <div ng-if="status === 'invalid'">
+                            <div class="verification-icon error">
+                                <i class="ion-alert-circled"></i>
+                            </div>
+                            <h2 class="verification-title">Link không hợp lệ</h2>
+                            <p class="verification-message">
+                                Link xác thực không hợp lệ hoặc đã hết hạn.<br>
+                                Vui lòng kiểm tra lại email của bạn.
+                            </p>
+                            <a href="login.html" class="verification-btn">
+                                Quay lại đăng nhập
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Simplified) -->
+    <div class="footer-area" style="margin-top: 60px;">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="copy-text">
+                            © 2024 <strong>Hoang Duong Computer</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/vendor/vendor.min.js"></script>
+    <script src="assets/js/plugins/plugins.min.js"></script>
+    
+    <!-- AngularJS -->
+    <script src="../lib/angular.min.js"></script>
+    
+    <!-- Main JS (HoangDuongApp module) -->
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Verification Controller -->
+    <script src="assets/js/controller/verificationController.js"></script>
+</body>
+</html>

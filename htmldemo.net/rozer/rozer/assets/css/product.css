@@ -1,0 +1,46 @@
+.img-block {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-block img.first-img {
+  transition: opacity 0.5s ease;
+}
+
+.img-block img.second-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.img-block:hover img.first-img {
+  opacity: 0;
+}
+
+.img-block:hover img.second-img {
+  opacity: 1;
+}
+
+.rating-product i {
+  color: #ffd700;
+}
+
+.rating-product i.active-star {
+  color: #ff9800;
+}
+
+.add-to-link ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-to-link ul li {
+  list-style: none;
+}
+.select-category{
+  background-color: #0F62AC; border: none;
+  color: white;
+
+}

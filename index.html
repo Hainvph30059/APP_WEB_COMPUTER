@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<!-- Mirrored from htmldemo.net/rozer/rozer/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2024 02:13:27 GMT -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Hoang Duong Computer</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="htmldemo.net/rozer/rozer/assets/images/favicon/favicon.png" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800&amp;display=swap"
+    rel="stylesheet" />
+  <!-- CSS
+  ============================================ -->
+
+  <!-- Vendor CSS (Bootstrap & Icon Font) -->
+  <!-- <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/vendor/ionicons.min.css">
+        <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/vendor/simple-line-icons.css">
+        <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/vendor/font-awesome.min.css"> -->
+
+  <!-- Plugins CSS (All Plugins Files) -->
+  <!-- <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/plugins/animate.css">
+        <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/plugins/jquery-ui.min.css">
+        <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/plugins/swiper.css">  -->
+
+  <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+  <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/vendor/vendor.min.css" />
+  <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/plugins/plugins.min.css" />
+  <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/style.min.css" />
+
+  <!-- Main Style CSS -->
+  <!-- <link rel="stylesheet" href="htmldemo.net/rozer/rozer/assets/css/style.css" />     -->
+</head>
+
+<body ng-app="HoangDuongApp" ng-controller="product">
+  <!-- Header Section Start From Here -->
+  <header class="header-wrapper">
+    <!-- Header Nav Start -->
+    <div class="header-nav">
+      <div class="container">
+        <div class="header-nav-wrapper d-md-flex d-sm-flex d-xl-flex d-lg-flex justify-content-between">
+          <div class="header-static-nav" style="color: rgb(5, 166, 224)">
+            <b>Welcome you to Hoang Duong Computer!</b>
+          </div>
+          <div class="header-menu-nav">
+            <ul class="menu-nav">
+              <li>
+                <div class="dropdown">
+                  <button type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Setting <i class="ion-ios-arrow-down"></i>
+                  </button>
+
+                  <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton">
+                    <li><a href="htmldemo.net/rozer/rozer/my-account.html">My account</a></li>
+                    <li><a href="htmldemo.net/rozer/rozer/checkout.html">Checkout</a></li>
+                    <li><a href="htmldemo.net/rozer/rozer/login.html">Sign in</a></li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="pr-0">
+                <div class="dropdown">
+                  <button type="button" id="dropdownMenuButton-3" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img src="htmldemo.net/rozer/rozer/assets/images/flag/VN.png" alt="" /> Việt Nam
+                    <i class="ion-ios-arrow-down"></i>
+                  </button>
+
+                  <ul class="dropdown-menu animation slideDownIn" aria-labelledby="dropdownMenuButton-3">
+                    <li>
+                      <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/flag/VN.png" alt="" /> Việt
+                        Nam</a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/flag/1.jpg" alt="" /> USA</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Nav End -->
+    <div class="header-top bg-white ptb-25px d-xl-block d-none">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="logo">
+              <a href="index.html"><img class="img-responsive"
+                  src="htmldemo.net/rozer/rozer/assets/images/logo/computer.jpg" alt="favicon.png" /></a>
+            </div>
+          </div>
+          <div class="col-md-10 align-self-center">
+            <div class="header-right-element d-flex">
+              <div class="search-element media-body">
+                <form class="d-flex" action="#">
+                  <div class="search-category">
+                    <select>
+                      <option value="0">All categories</option>
+                      <option value="12">Laptop</option>
+                      <option value="104">Game Consoles</option>
+                      <option value="105">Mp3 &amp; headphone</option>
+                      <option value="106">Tv &amp; Video</option>
+                      <option value="107">Watches</option>
+                      <option value="108">Washing Machine</option>
+                      <option value="109">Camera</option>
+                      <option value="110">Audio &amp; Theater</option>
+                      <option value="111">Accessories</option>
+                      <option value="112">Games &amp; Consoles</option>
+                    </select>
+                  </div>
+                  <input type="text" placeholder="Enter your search key ... " />
+                  <button><i class="icon-magnifier"></i></button>
+                </form>
+              </div>
+              <div class="contact-link">
+                <div class="phone">
+                  <p>Call us:</p>
+                  <a href="tel:0834323286">0834 32 32 86</a>
+                </div>
+              </div>
+              <!--Cart info Start -->
+              <div class="header-tools d-flex">
+                <div class="cart-info d-flex align-self-center">
+                  <a href="htmldemo.net/rozer/rozer/compare.html" class="shuffle" data-number="3"><i
+                      class="icon-shuffle"></i></a>
+                  <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
+                      class="icon-heart"></i></a>
+                  <a href="htmldemo.net/rozer/rozer/cart.html" class="bag" data-number="3"><i
+                      class="icon-bag"></i><span>$20.000</span></a>
+                </div>
+              </div>
+            </div>
+            <!--Cart info End -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header Nav End -->
+    <div class="header-menu bg-blue sticky-nav d-xl-block d-none padding-0px">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 custom-col-2">
+            <div class="header-menu-vertical">
+              <h4 class="menu-title">All Categories</h4>
+              <ul class="menu-content display-none">
+                <li class="menu-item" ng-repeat="type in productTypes">
+                  <a href="htmldemo.net/rozer/rozer/listProduct.html?type={{type.typeName}}">
+                    {{type.displayName}}
+                  </a>
+                </li>
+              </ul>
+              <!-- menu content -->
+            </div>
+            <!-- header menu vertical -->
+          </div>
+          <!-- header menu vertical -->
+        </div>
+        <div class="col-lg-9 custom-col-2">
+          <div class="header-horizontal-menu">
+            <ul class="menu-content">
+              <li class="active menu-dropdown">
+                <a href="index.html">Home </a>
+              </li>
+              <li class="menu-dropdown">
+                <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html">Shop</a>
+              </li>
+              <li class="menu-dropdown">
+                <a href="htmldemo.net/rozer/rozer/about.html">Pages <i class="ion-ios-arrow-down"></i></a>
+                <ul class="main-sub-menu">
+                  <li><a href="htmldemo.net/rozer/rozer/about.html">About Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/cart.html">Cart Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/checkout.html">Checkout Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/compare.html">Compare Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/login.html">Login & Register Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/my-account.html">Account Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/wishlist.html">Wishlist Page</a></li>
+                  <li><a href="htmldemo.net/rozer/rozer/thank-you-page.html">Thank You Page</a></li>
+                </ul>
+              </li>
+              <li class="menu-dropdown">
+                <a href="htmldemo.net/rozer/rozer/blog-grid-left-sidebar.html">Blog</a>
+              </li>
+              <li><a href="htmldemo.net/rozer/rozer/contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <!-- header horizontal menu -->
+          <div class="intro-text-shipping text-end">
+            <div class="free-ship">
+              Free Returns & Exchanges on All Orders!
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+    </div>
+    <!-- header menu -->
+  </header>
+  <!-- Header Section End Here -->
+
+  <!-- Mobile Header Section Start -->
+  <div class="mobile-header d-xl-none sticky-nav bg-white ptb-10px">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Header Logo Start -->
+        <div class="col">
+          <div class="header-logo">
+            <a href="index.html"><img class="img-responsive"
+                src="htmldemo.net/rozer/rozer/assets/images/logo/computer.jpg" alt="favicon.png" /></a>
+          </div>
+        </div>
+        <!-- Header Logo End -->
+
+        <!-- Header Tools Start -->
+        <div class="col-auto">
+          <div class="header-tools justify-content-end">
+            <div class="cart-info d-flex align-self-center">
+              <a href="htmldemo.net/rozer/rozer/compare.html" class="shuffle d-xs-none" data-number="3"><i
+                  class="icon-shuffle"></i></a>
+              <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i
+                  class="icon-heart"></i></a>
+              <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i
+                  class="icon-bag"></i><span>$20.00</span></a>
+            </div>
+            <div class="mobile-menu-toggle">
+              <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
+                <svg viewBox="0 0 800 600">
+                  <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+                    id="top"></path>
+                  <path d="M300,320 L540,320" id="middle"></path>
+                  <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+                    id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Header Tools End -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Category Start -->
+  <div class="mobile-search-area d-xl-none mb-15px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="search-element media-body">
+            <form class="d-flex" action="#">
+              <div class="search-category">
+                <select>
+                  <option value="0">All categories</option>
+                  <option value="12">Laptop</option>
+                  <option value="13">- - Hot Categories</option>
+                  <option value="19">- - - - Dresses</option>
+                  <option value="20">- - - - Jackets &amp; Coats</option>
+                  <option value="21">- - - - Sweaters</option>
+                  <option value="22">- - - - Jeans</option>
+                  <option value="23">- - - - Blouses &amp; Shirts</option>
+                  <option value="14">- - Outerwear &amp; Jackets</option>
+                  <option value="24">- - - - Basic Jackets</option>
+                  <option value="25">- - - - Real Fur</option>
+                  <option value="26">- - - - Down Coats</option>
+                  <option value="27">- - - - Blazers</option>
+                  <option value="28">- - - - Trench Coats</option>
+                  <option value="15">- - Weddings &amp; Events</option>
+                  <option value="29">- - - - Wedding Dresses</option>
+                  <option value="30">- - - - Evening Dresses</option>
+                  <option value="31">- - - - Prom Dresses</option>
+                  <option value="32">- - - - Bridesmaid Dresses</option>
+                  <option value="33">- - - - Wedding Accessories</option>
+                  <option value="16">- - Bottoms</option>
+                  <option value="34">- - - - Skirts</option>
+                  <option value="35">- - - - Leggings</option>
+                  <option value="36">- - - - Pants &amp; Capris</option>
+                  <option value="37">- - - - Wide Leg Pants</option>
+                  <option value="38">- - - - Shorts</option>
+                  <option value="17">- - Tops &amp; Sets</option>
+                  <option value="39">- - - - Tank Tops</option>
+                  <option value="40">- - - - Suits &amp; Sets</option>
+                  <option value="41">- - - - Jumpsuits</option>
+                  <option value="42">- - - - Rompers</option>
+                  <option value="43">- - - - Sleep &amp; Lounge</option>
+                  <option value="18">- - Accessories</option>
+                  <option value="44">
+                    - - - - Eyewear &amp; Accessories
+                  </option>
+                  <option value="45">- - - - Hats &amp; Caps</option>
+                  <option value="46">- - - - Belts &amp; Cummerbunds</option>
+                  <option value="47">- - - - Scarves &amp; Wraps</option>
+                  <option value="48">- - - - Gloves &amp; Mittens</option>
+                  <option value="49">Computer</option>
+                  <option value="50">- - Bottoms</option>
+                  <option value="53">- - - - Skirts</option>
+                  <option value="54">- - - - Leggings</option>
+                  <option value="55">- - - - Jeans</option>
+                  <option value="56">- - - - Pants &amp; Capris</option>
+                  <option value="57">- - - - Shorts</option>
+                  <option value="51">- - Outerwear &amp; Jackets</option>
+                  <option value="58">- - - - Trench</option>
+                  <option value="59">- - - - Genuine Leather</option>
+                  <option value="60">- - - - Parkas</option>
+                  <option value="61">- - - - Down Jackets</option>
+                  <option value="62">- - - - Wool &amp; Blends</option>
+                  <option value="52">- - Underwear &amp; Loungewear</option>
+                  <option value="63">- - - - Boxers</option>
+                  <option value="64">- - - - Briefs</option>
+                  <option value="65">- - - - Long Johns</option>
+                  <option value="66">- - - - Men's Sleep &amp; Lounge</option>
+                  <option value="67">- - - - Pajama Sets</option>
+                  <option value="68">Smartphone</option>
+                  <option value="69">- - Accessories &amp; Parts</option>
+                  <option value="75">- - - - Cables &amp; Adapters</option>
+                  <option value="76">- - - - Batteries</option>
+                  <option value="77">- - - - Chargers</option>
+                  <option value="78">- - - - Bags &amp; Cases</option>
+                  <option value="79">- - - - Electronic Cigarettes</option>
+                  <option value="70">- - Audio &amp; Video</option>
+                  <option value="80">- - - - Televisions</option>
+                  <option value="81">- - - - TV Receivers</option>
+                  <option value="82">- - - - Projectors</option>
+                  <option value="83">- - - - Audio Amplifier Boards</option>
+                  <option value="84">- - - - TV Sticks</option>
+                  <option value="71">- - Camera &amp; Photo</option>
+                  <option value="85">- - - - Digital Cameras</option>
+                  <option value="86">- - - - Camcorders</option>
+                  <option value="87">- - - - Camera Drones</option>
+                  <option value="88">- - - - Action Cameras</option>
+                  <option value="89">- - - - Photo Studio Supplies</option>
+                  <option value="72">- - Portable Audio &amp; Video</option>
+                  <option value="90">- - - - Headphones</option>
+                  <option value="91">- - - - Speakers</option>
+                  <option value="92">- - - - MP3 Players</option>
+                  <option value="93">- - - - VR/AR Devices</option>
+                  <option value="94">- - - - Microphones</option>
+                  <option value="73">- - Smart Electronics</option>
+                  <option value="95">- - - - Wearable Devices</option>
+                  <option value="96">- - - - Smart Home Appliances</option>
+                  <option value="97">- - - - Smart Remote Controls</option>
+                  <option value="98">- - - - Smart Watches</option>
+                  <option value="99">- - - - Smart Wristbands</option>
+                  <option value="74">- - Video Games</option>
+                  <option value="100">- - - - Handheld Game Players</option>
+                  <option value="101">- - - - Game Controllers</option>
+                  <option value="102">- - - - Joysticks</option>
+                  <option value="103">- - - - Stickers</option>
+                  <option value="104">Game Consoles</option>
+                  <option value="105">Mp3 &amp; headphone</option>
+                  <option value="106">Tv &amp; Video</option>
+                  <option value="107">Watches</option>
+                  <option value="108">Washing Machine</option>
+                  <option value="109">Camera</option>
+                  <option value="110">Audio &amp; Theater</option>
+                  <option value="111">Accessories</option>
+                  <option value="112">Games &amp; Consoles</option>
+                </select>
+              </div>
+              <input type="text" placeholder="Enter your search key ... " />
+              <button><i class="icon-magnifier"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Search Category End -->
+  <div class="mobile-category-nav d-xl-none mb-15px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!--=======  category menu  =======-->
+          <div class="hero-side-category">
+            <!-- Category Toggle Wrap -->
+            <div class="category-toggle-wrap">
+              <!-- Category Toggle -->
+              <button class="category-toggle">
+                <i class="fa fa-bars"></i> All Categories
+              </button>
+            </div>
+
+            <!-- Category Menu -->
+            <nav class="category-menu">
+              <ul>
+                <li class="menu-item-has-children menu-item-has-children-1">
+                  <a href="#">Accessories & Parts<i class="ion-ios-arrow-down"></i></a>
+                  <!-- category submenu -->
+                  <ul class="category-mega-menu category-mega-menu-1">
+                    <li><a href="#">Cables & Adapters</a></li>
+                    <li><a href="#">Batteries</a></li>
+                    <li><a href="#">Chargers</a></li>
+                    <li><a href="#">Bags & Cases</a></li>
+                    <li><a href="#">Electronic Cigarettes</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children menu-item-has-children-2">
+                  <a href="#">Camera & Photo<i class="ion-ios-arrow-down"></i></a>
+                  <!-- category submenu -->
+                  <ul class="category-mega-menu category-mega-menu-2">
+                    <li><a href="#">Digital Cameras</a></li>
+                    <li><a href="#">Camcorders</a></li>
+                    <li><a href="#">Camera Drones</a></li>
+                    <li><a href="#">Action Cameras</a></li>
+                    <li><a href="#">Photo Studio Supplies</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children menu-item-has-children-3">
+                  <a href="#">Smart Electronics <i class="ion-ios-arrow-down"></i></a>
+                  <!-- category submenu -->
+                  <ul class="category-mega-menu category-mega-menu-3">
+                    <li><a href="#">Wearable Devices</a></li>
+                    <li><a href="#">Smart Home Appliances</a></li>
+                    <li><a href="#">Smart Remote Controls</a></li>
+                    <li><a href="#">Smart Watches</a></li>
+                    <li><a href="#">Smart Wristbands</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children menu-item-has-children-4">
+                  <a href="#">Audio & Video <i class="ion-ios-arrow-down"></i></a>
+                  <!-- category submenu -->
+                  <ul class="category-mega-menu category-mega-menu-4">
+                    <li><a href="#">Televisions</a></li>
+                    <li><a href="#">TV Receivers</a></li>
+                    <li><a href="#">Projectors</a></li>
+                    <li><a href="#">Audio Amplifier Boards</a></li>
+                    <li><a href="#">TV Sticks</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children menu-item-has-children-5">
+                  <a href="#">Portable Audio & Video <i class="ion-ios-arrow-down"></i></a>
+                  <!-- category submenu -->
+                  <ul class="category-mega-menu category-mega-menu-5">
+                    <li><a href="#">Headphones</a></li>
+                    <li><a href="#">Speakers</a></li>
+                    <li><a href="#">MP3 Players</a></li>
+                    <li><a href="#">VR/AR Devices</a></li>
+                    <li><a href="#">Microphones</a></li>
+                  </ul>
+                </li>
+                <li class="menu-item-has-children menu-item-has-children-6">
+                  <a href="#">Video Game <i class="ion-ios-arrow-down"></i></a>
+                  <!-- category submenu -->
+                  <ul class="category-mega-menu category-mega-menu-6">
+                    <li><a href="#">Handheld Game Players</a></li>
+                    <li><a href="#">Game Controllers</a></li>
+                    <li><a href="#">Joysticks</a></li>
+                    <li><a href="#">Stickers</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Televisions</a></li>
+                <li><a href="#">Digital Cameras</a></li>
+                <li><a href="#">Headphones</a></li>
+                <li><a href="#">Wearable Devices</a></li>
+                <li><a href="#">Smart Watches</a></li>
+                <li><a href="#">Game Controllers</a></li>
+                <li><a href="#"> Smart Home Appliances</a></li>
+                <li class="hidden"><a href="#">Projectors</a></li>
+                <li>
+                  <a href="#" id="more-btn"><i class="ion-ios-plus-empty" aria-hidden="true"></i>
+                    More Categories</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <!--=======  End of category menu =======-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile Header Section End -->
+  <!-- OffCanvas Wishlist Start -->
+  <div id="offcanvas-wishlist" class="offcanvas offcanvas-wishlist">
+    <div class="inner">
+      <div class="head">
+        <span class="title">Wishlist</span>
+        <button class="offcanvas-close">×</button>
+      </div>
+      <div class="body customScroll">
+        <ul class="minicart-product-list">
+          <li>
+            <a href="htmldemo.net/rozer/rozer/single-product.html" class="image"><img
+                src="htmldemo.net/rozer/rozer/assets/images/product-image/1.jpg" alt="Cart product Image" /></a>
+            <div class="content">
+              <a href="htmldemo.net/rozer/rozer/single-product.html" class="title">Walnut Cutting Board</a>
+              <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
+              <a href="#" class="remove">×</a>
+            </div>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/single-product.html" class="image"><img
+                src="htmldemo.net/rozer/rozer/assets/images/product-image/2.jpg" alt="Cart product Image" /></a>
+            <div class="content">
+              <a href="htmldemo.net/rozer/rozer/single-product.html" class="title">Lucky Wooden Elephant</a>
+              <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
+              <a href="#" class="remove">×</a>
+            </div>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/single-product.html" class="image"><img
+                src="htmldemo.net/rozer/rozer/assets/images/product-image/3.jpg" alt="Cart product Image" /></a>
+            <div class="content">
+              <a href="htmldemo.net/rozer/rozer/single-product.html" class="title">Fish Cut Out Set</a>
+              <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
+              <a href="#" class="remove">×</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="foot">
+        <div class="buttons">
+          <a href="htmldemo.net/rozer/rozer/wishlist.html" class="btn btn-dark btn-hover-primary mt-30px">view
+            wishlist</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- OffCanvas Wishlist End -->
+
+  <!-- OffCanvas Cart Start -->
+  <!-- <div id="offcanvas-cart" class="offcanvas offcanvas-cart">
+    <div class="inner">
+      <div class="head">
+        <span class="title">Cart</span>
+        <button class="offcanvas-close">×</button>
+      </div>
+      <div class="body customScroll">
+        <ul class="minicart-product-list">
+          <li>
+            <a href="htmldemo.net/rozer/rozer/single-product.html" class="image"><img
+                src="htmldemo.net/rozer/rozer/assets/images/product-image/1.jpg" alt="Cart product Image" /></a>
+            <div class="content">
+              <a href="htmldemo.net/rozer/rozer/single-product.html" class="title">Walnut Cutting Board</a>
+              <span class="quantity-price">1 x <span class="amount">$100.00</span></span>
+              <a href="#" class="remove">×</a>
+            </div>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/single-product.html" class="image"><img
+                src="htmldemo.net/rozer/rozer/assets/images/product-image/2.jpg" alt="Cart product Image" /></a>
+            <div class="content">
+              <a href="htmldemo.net/rozer/rozer/single-product.html" class="title">Lucky Wooden Elephant</a>
+              <span class="quantity-price">1 x <span class="amount">$35.00</span></span>
+              <a href="#" class="remove">×</a>
+            </div>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/single-product.html" class="image"><img
+                src="htmldemo.net/rozer/rozer/assets/images/product-image/3.jpg" alt="Cart product Image" /></a>
+            <div class="content">
+              <a href="htmldemo.net/rozer/rozer/single-product.html" class="title">Fish Cut Out Set</a>
+              <span class="quantity-price">1 x <span class="amount">$9.00</span></span>
+              <a href="#" class="remove">×</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="foot">
+        <div class="sub-total">
+          <strong>Subtotal :</strong>
+          <span class="amount">$144.00</span>
+        </div>
+        <div class="buttons">
+          <a href="htmldemo.net/rozer/rozer/cart.html" class="btn btn-dark btn-hover-primary mb-30px">view cart</a>
+          <a href="htmldemo.net/rozer/rozer/checkout.html" class="btn btn-outline-dark current-btn">checkout</a>
+        </div>
+        <p class="minicart-message">Free Shipping on All Orders Over $100!</p>
+      </div>
+    </div>
+  </div> -->
+  <!-- OffCanvas Cart End -->
+
+  <!-- OffCanvas Search Start -->
+  <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
+    <div class="inner customScroll">
+      <div class="head">
+        <span class="title">&nbsp;</span>
+        <button class="offcanvas-close">×</button>
+      </div>
+      <div class="offcanvas-menu-search-form">
+        <form action="#">
+          <input type="text" placeholder="Search..." />
+          <button><i class="icon-magnifier"></i></button>
+        </form>
+      </div>
+      <div class="offcanvas-menu">
+        <ul>
+          <li>
+            <a href="index.html"><span class="menu-text">Home</span></a>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html"><span class="menu-text">Shop</span></a>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/about.html"><span class="menu-text">Pages</span></a>
+            <ul class="sub-menu">
+              <li><a href="htmldemo.net/rozer/rozer/about.html">About Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/cart.html">Cart Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/checkout.html">Checkout Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/compare.html">Compare Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/login.html">Login & Register Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/my-account.html">Account Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/wishlist.html">Wishlist Page</a></li>
+              <li><a href="htmldemo.net/rozer/rozer/thank-you-page.html">Thank You Page</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="htmldemo.net/rozer/rozer/blog-grid-left-sidebar.html"><span class="menu-text">Blog</span></a>
+          </li>
+          <li><a href="htmldemo.net/rozer/rozer/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="offcanvas-buttons mt-30px">
+        <div class="header-tools d-flex">
+          <div class="cart-info d-flex align-self-center">
+            <a href="htmldemo.net/rozer/rozer/my-account.html" class="user"><i class="icon-user"></i></a>
+            <a href="htmldemo.net/rozer/rozer/wishlist.html" data-number="3"><i class="icon-heart"></i></a>
+            <a href="htmldemo.net/rozer/rozer/cart.html" data-number="3"><i class="icon-bag"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="offcanvas-social mt-30px">
+        <ul>
+          <li>
+            <a href="#"><i class="icon-social-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="icon-social-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="icon-social-instagram"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="icon-social-google"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="icon-social-instagram"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- OffCanvas Search End -->
+
+  <div class="offcanvas-overlay"></div>
+
+  <!-- Slider Start -->
+  <div class="slider-area slider-height-1">
+    <div class="hero-slider swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Single Slider  -->
+        <div class="swiper-slide bg-img d-flex" style="
+              background-image: url(htmldemo.net/rozer/rozer/assets/images/slider-image/laptopdell.jpg);
+            ">
+          <div class="container align-self-center">
+            <div class="slider-content-1 slider-animated-1 text-start pl-60px">
+              <span class="animated color-gray">NEW DESIGN FEATURES</span>
+              <h1 class="animated color-black">
+                Laptop Dell <br />
+                <strong>Inspirion</strong>
+              </h1>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="shop-btn animated">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+        <!-- Single Slider  -->
+        <div class="swiper-slide bg-img d-flex" style="
+              background-image: url(htmldemo.net/rozer/rozer/assets/images/slider-image/laptopmsi.jpg);
+            ">
+          <div class="container align-self-center">
+            <div class="slider-content-1 slider-animated-1 text-start pl-60px">
+              <span class="animated color-gray">NEW DESIGN FEATURES</span>
+              <h1 class="animated color-black">
+                Laptop MSI <br />
+                <strong>Modern 15 B7M-099VN</strong>
+              </h1>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="shop-btn animated">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+        <!-- Single Slider  -->
+        <div class="swiper-slide bg-img d-flex" style="
+              background-image: url(htmldemo.net/rozer/rozer/assets/images/slider-image/laptoplenovo.jpg);
+            ">
+          <div class="container align-self-center">
+            <div class="slider-content-1 slider-animated-1 text-start pl-60px">
+              <span class="animated color-gray">NEW DESIGN FEATURES</span>
+              <h1 class="animated color-black">
+                Laptop Lenovo <br />
+                <strong> Ideapad 3 Pentium Silver</strong>
+              </h1>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="shop-btn animated">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination swiper-pagination-white"></div>
+    </div>
+  </div>
+  <!-- Slider End -->
+  <!-- Static Area Start -->
+  <div class="static-area mtb-60px">
+    <div class="container">
+      <div class="static-area-wrap">
+        <div class="row">
+          <!-- Static Single Item Start -->
+          <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6 mb-md-30px mb-lm-30px">
+            <div class="single-static">
+              <img src="htmldemo.net/rozer/rozer/assets/images/icons/static-icons-1.png" alt=""
+                class="img-responsive" />
+              <div class="single-static-meta">
+                <h4>Free Shipping</h4>
+                <p>On all orders over $75.00</p>
+              </div>
+            </div>
+          </div>
+          <!-- Static Single Item End -->
+          <!-- Static Single Item Start -->
+          <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6 mb-md-30px mb-lm-30px">
+            <div class="single-static">
+              <img src="htmldemo.net/rozer/rozer/assets/images/icons/static-icons-2.png" alt=""
+                class="img-responsive" />
+              <div class="single-static-meta">
+                <h4>Free Returns</h4>
+                <p>Returns are free within 9 days</p>
+              </div>
+            </div>
+          </div>
+          <!-- Static Single Item End -->
+          <!-- Static Single Item Start -->
+          <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6 mb-sm-30px">
+            <div class="single-static">
+              <img src="htmldemo.net/rozer/rozer/assets/images/icons/static-icons-4.png" alt=""
+                class="img-responsive" />
+              <div class="single-static-meta">
+                <h4>Support 24/7</h4>
+                <p>Contact us 24 hours a day</p>
+              </div>
+            </div>
+          </div>
+          <!-- Static Single Item End -->
+          <!-- Static Single Item Start -->
+          <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
+            <div class="single-static">
+              <img src="htmldemo.net/rozer/rozer/assets/images/icons/static-icons-3.png" alt=""
+                class="img-responsive" />
+              <div class="single-static-meta">
+                <h4>100% Payment Secure</h4>
+                <p>Your payment are safe with us.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Static Single Item End -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Static Area End -->
+  <!-- Banner Area Start -->
+  <div class="banner-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-xs-12">
+          <div class="banner-wrapper">
+            <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html"><img
+                src="htmldemo.net/rozer/rozer/assets/images/banner-image/Alenware.png" alt="" /></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <div class="banner-wrapper">
+            <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html"><img
+                src="htmldemo.net/rozer/rozer/assets/images/banner-image/optiplex.jpg" alt="" /></a>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <div class="banner-wrapper">
+            <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html"><img
+                src="htmldemo.net/rozer/rozer/assets/images/banner-image/routerAsus.jpg" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Banner Area End -->
+  <!-- category Area Start -->
+  <div class="popular-categories-area mt-30px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title">
+            <h2 class="section-heading">Popular Categories</h2>
+          </div>
+        </div>
+      </div>
+      <div class="category-slider slider-nav-style-1">
+        <div class="category-slider-wrapper swiper-wrapper">
+          <div class="category-slider-item swiper-slide">
+            <div class="thumb-category">
+              <a href="javascript:void(0);" onclick="setProductType('laptop')">
+                <img src="htmldemo.net/rozer/rozer/assets/images/product-image/laptopseries.jpg"
+                  alt="product-image.jpg" />
+              </a>
+            </div>
+            <div class="category-discript">
+              <h4>Laptop Series</h4>
+              <ul>
+                <li><a href="#">Laptop Dell</a></li>
+                <li><a href="#">Laptop HP</a></li>
+                <li><a href="#">Laptop Asus</a></li>
+                <li><a href="#">Laptop Acer</a></li>
+              </ul>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="view-all-btn">View All</a>
+            </div>
+          </div>
+          <div class="category-slider-item swiper-slide">
+            <div class="thumb-category">
+              <a href="javascript:void(0);" onclick="setProductType('pc')">
+                <img src="htmldemo.net/rozer/rozer/assets/images/product-image/pcseries.png" alt="product-image.jpg" />
+              </a>
+            </div>
+            <div class="category-discript">
+              <h4>PC Series & PC Synchronous</h4>
+              <ul>
+                <li><a href="#">PC Synchronous Dell </a></li>
+                <li><a href="#">PC Synchronous HP</a></li>
+                <li><a href="#">PC HP Mini</a></li>
+                <li><a href="#">PC Build</a></li>
+              </ul>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="view-all-btn">View All</a>
+            </div>
+          </div>
+          <div class="category-slider-item swiper-slide">
+            <div class="thumb-category">
+              <a href="javascript:void(0);" onclick="setProductType('network')">
+                <img src="htmldemo.net/rozer/rozer/assets/images/product-image/router.jpg" alt="product-image.jpg" />
+              </a>
+            </div>
+            <div class="category-discript">
+              <h4>Network Devices</h4>
+              <ul>
+                <li><a href="#">Router Cisco</a></li>
+                <li><a href="#">Router UniFi (USG)</a></li>
+                <li><a href="#">Router Mikrotik</a></li>
+                <li><a href="#">Router TP-Link</a></li>
+              </ul>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="view-all-btn">View All</a>
+            </div>
+          </div>
+          <div class="category-slider-item swiper-slide">
+            <div class="thumb-category">
+              <a href="javascript:void(0);" onclick="setProductType('server')">
+                <img src="htmldemo.net/rozer/rozer/assets/images/product-image/server.jpg" alt="product-image.jpg" />
+              </a>
+            </div>
+            <div class="category-discript">
+              <h4>Servers</h4>
+              <ul>
+                <li><a href="#">Dell Servers</a></li>
+                <li><a href="#">HP Servers</a></li>
+                <li><a href="#">Lenovo Servers</a></li>
+                <li><a href="#">Rack Cabinet & Town - Standing Case</a></li>
+              </ul>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="view-all-btn">View All</a>
+            </div>
+          </div>
+          <div class="category-slider-item swiper-slide">
+            <div class="thumb-category">
+              <a href="htmldemo.net/rozer/rozer/single-product.html">
+                <img src="htmldemo.net/rozer/rozer/assets/images/product-image/service1.png" alt="product-image.jpg" />
+              </a>
+            </div>
+            <div class="category-discript">
+              <h4>Consulting services</h4>
+              <ul>
+                <li>
+                  <a href="#">Consulting & designing network systems</a>
+                </li>
+                <li>
+                  <a href="#">Configure servers and specialized network devices</a>
+                </li>
+              </ul>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="view-all-btn">View All</a>
+            </div>
+          </div>
+          <div class="category-slider-item swiper-slide">
+            <div class="thumb-category">
+              <a href="htmldemo.net/rozer/rozer/single-product.html">
+                <img src="htmldemo.net/rozer/rozer/assets/images/product-image/sevices2.jpg" alt="product-image.jpg" />
+              </a>
+            </div>
+            <div class="category-discript">
+              <h4>Construction services</h4>
+              <ul>
+                <li>
+                  <a href="#">Construction of network systems, network infrastructure,
+                    and telephone switchboard systems</a>
+                </li>
+                <li>
+                  <a href="#">Construction and installation of surveillance camera and
+                    video bell systems</a>
+                </li>
+              </ul>
+              <a href="htmldemo.net/rozer/rozer/shop-right-sidebar.html" class="view-all-btn">View All</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-buttons">
+          <div class="swiper-button-next custom-swiper-btn">
+            <i class="fa fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev custom-swiper-btn">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- category Area End -->
+  <!-- Feature Area start -->
+  <div class="feature-area mt-60px mb-30px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title">
+            <h2 class="section-heading">{{title}}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="feature-slider slider-nav-style-1">
+        <div class="feature-slider-wrapper swiper-wrapper">
+          <!-- Single Item -->
+
+          <div class="feature-slider-item swiper-slide" ng-repeat="laptop in listLaptop">
+            <article class="list-product">
+              <div class="img-block">
+                <a href="htmldemo.net/rozer/rozer/single-product.html?id={{laptop.id}}&type={{laptop.productTypeName}}"
+                  class="thumbnail">
+                  <img class="first-img" ng-src="{{laptop.urls[0]}}" alt="{{laptop.name}}" />
+                  <img class="second-img" ng-src="{{laptop.urls[1]}}" alt="{{laptop.name}}" />
+                </a>
+              </div>
+              <ul class="product-flag">
+                <li class="new">New</li>
+              </ul>
+              <div class="product-decs" style="padding-bottom: 8px;">
+                <a class="inner-link"
+                  href="htmldemo.net/rozer/rozer/single-product.html?id={{laptop.id}}&type={{laptop.productTypeName}}">
+                  <span
+                    style="font-size: 16px; font-weight: 700; color: #1976d2; display: block; margin-bottom: 6px; line-height: 1.3;">
+                    {{laptop.name}}
+                  </span>
+                </a>
+                <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                  <span class="product-link"
+                    style="background: #e3f2fd; padding: 3px 10px; border-radius: 4px; display: inline-block;">
+                    <b>Số lượng:</b> {{laptop.stock}}
+                  </span>
+                </div>
+                <div class="pricing-meta" style="margin-bottom: 0;">
+                  <ul style="padding: 0; margin: 0; list-style: none;">
+                    <li class="old-price not-cut"
+                      style="font-size: 17px; color: #e53935; font-weight: 700; letter-spacing: 1px; padding-left: 3px;">
+                      Giá: {{laptop.price | number:0}} <span
+                        style="font-size: 13px; color: #888; font-weight: 400;">VNĐ</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="add-to-link">
+                <ul>
+                  <li class="cart">
+                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(laptop.id, 1, laptop.name)">ADD TO CART</a>
+                  </li>
+                  <li>
+                    <a href="htmldemo.net/rozer/rozer/wishlist.html"><i class="icon-heart"></i></a>
+                  </li>
+                  <li>
+                    <a href="htmldemo.net/rozer/rozer/compare.html"><i class="icon-shuffle"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <!-- nút xem tiếp -->
+          <div class="feature-slider-item swiper-slide product-item"
+            style="display: flex; align-items: center; justify-content: center; height: auto; min-height: 200px;">
+            <a href="javascript:void(0);" onclick="setProductType('laptop')" id="dynamic-button">
+              Xem thêm
+            </a>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-buttons">
+          <div class="swiper-button-next custom-swiper-btn">
+            <i class="fa fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev custom-swiper-btn">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+        </div>
+
+        <!-- Nếu chưa có FontAwesome, thêm vào head: -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+      </div>
+    </div>
+  </div>
+  <!-- Feature Area End -->
+  <!-- Deal Area Start -->
+  <div class="deal-area bg-light-gray pt-60px pb-30px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title">
+            <h2 class="section-heading">Máy tính để bàn</h2>
+          </div>
+        </div>
+      </div>
+      <div class="deal-slider slider-nav-style-1">
+        <div class="deal-slider-wrapper swiper-wrapper">
+          <!-- Single Item -->
+          <div class="deal-slider-item swiper-slide" ng-repeat="pc in listPc">
+            <article class="list-product">
+              <div class="img-block">
+                <a href="htmldemo.net/rozer/rozer/single-product.html?id={{pc.id}}&type={{pc.productTypeName}}"
+                  class="thumbnail">
+                  <img class="first-img" ng-src="{{pc.urls[0]}}" alt="{{pc.name}}" />
+                  <img class="second-img" ng-src="{{pc.urls[1]}}" alt="{{pc.name}}" />
+                </a>
+              </div>
+              <ul class="product-flag">
+                <li class="new">New</li>
+              </ul>
+              <div class="product-decs" style="padding-bottom: 8px;">
+                <a class="inner-link"
+                  href="htmldemo.net/rozer/rozer/single-product.html?id={{pc.id}}&type={{pc.productTypeName}}">
+                  <span
+                    style="font-size: 16px; font-weight: 700; color: #1976d2; display: block; margin-bottom: 6px; line-height: 1.3;">
+                    {{pc.name}}
+                  </span>
+                </a>
+                <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                  <span class="product-link"
+                    style="background: #e3f2fd; padding: 3px 10px; border-radius: 4px; display: inline-block;">
+                    <b>Số lượng:</b> {{pc.stock}}
+                  </span>
+                </div>
+                <div class="pricing-meta" style="margin-bottom: 0;">
+                  <ul style="padding: 0; margin: 0; list-style: none;">
+                    <li class="old-price not-cut"
+                      style="font-size: 17px; color: #e53935; font-weight: 700; letter-spacing: 1px; padding-left: 3px;">
+                      Giá: {{pc.price | number:0}} <span
+                        style="font-size: 13px; color: #888; font-weight: 400;">VNĐ</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="add-to-link">
+                <ul>
+                  <li class="cart">
+                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(pc.id, 1, pc.name)">ADD TO CART</a>
+                  </li>
+                  <li>
+                    <a href="htmldemo.net/rozer/rozer/wishlist.html"><i class="icon-heart"></i></a>
+                  </li>
+                  <li>
+                    <a href="htmldemo.net/rozer/rozer/compare.html"><i class="icon-shuffle"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <!-- nút xem tiếp -->
+          <div class="feature-slider-item swiper-slide product-item"
+            style="display: flex; align-items: center; justify-content: center; height: auto; min-height: 200px;">
+            <a href="javascript:void(0);" onclick="setProductType('pc')" id="dynamic-button">
+              Xem thêm
+            </a>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-buttons">
+          <div class="swiper-button-next custom-swiper-btn">
+            <i class="fa fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev custom-swiper-btn">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Deal Area End -->
+  <!-- Category Tab Area Start -->
+  <section class="category-tab-area mb-40px">
+  <div class="container">
+    <div class="section-title d-flex">
+      <h2>Linh kiện máy tính</h2>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs sub-category d-flex justify-content-end flex-grow-1">
+        <li class="nav-item" ng-repeat="tab in hardwareTabs" ng-class="{ 'active': $index === 0 }">
+          <a class="nav-link" ng-class="{ 'active': $index === 0 }" data-bs-toggle="tab" ng-href="#tab-{{tab.id}}">{{tab.name}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="tab-content banner-area">
+      <div ng-repeat="tab in hardwareTabs" id="tab-{{tab.id}}" class="tab-pane" ng-class="{ 'active': $index === 0 }">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 mt-lm-55px">
+            <div class="banner-wrapper">
+              <a href="shop-4-column.html">
+                <img src="htmldemo.net/rozer/rozer/assets/images/banner-image/6.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8">
+            <div class="feature-slider-2 hardware-slider slider-nav-style-1">
+              <div class="feature-slider-wrapper swiper-wrapper">
+                <!-- Single Item -->
+                <div class="feature-slider-item swiper-slide" ng-repeat="product in tab.products">
+                  <article class="list-product">
+                    <div class="img-block">
+                      <a ng-href="htmldemo.net/rozer/rozer/single-product.html?id={{product.id}}&type={{product.productTypeName}}" class="thumbnail">
+                        <img class="first-img" ng-src="{{product.urls[0]}}" alt="{{product.name}}" />
+                        <img class="second-img" ng-src="{{product.urls[1]}}" alt="{{product.name}}" />
+                      </a>
+                    </div>
+                    <ul class="product-flag">
+                      <li class="new">New</li>
+                    </ul>
+                    <div class="product-decs" style="padding-bottom: 8px;">
+                      <a class="inner-link" ng-href="htmldemo.net/rozer/rozer/single-product.html?id={{product.id}}&type={{product.productTypeName}}">
+                        <span style="font-size: 16px; font-weight: 700; color: #1976d2; display: block; margin-bottom: 6px; line-height: 1.3;">
+                          {{product.name}}
+                        </span>
+                      </a>
+                      <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                        <span class="product-link" style="background: #e3f2fd; padding: 3px 10px; border-radius: 4px; display: inline-block;">
+                          <b>Số lượng:</b> {{product.stock}}
+                        </span>
+                      </div>
+                      <div class="pricing-meta" style="margin-bottom: 0;">
+                        <ul style="padding: 0; margin: 0; list-style: none;">
+                          <li class="old-price not-cut" style="font-size: 17px; color: #e53935; font-weight: 700; letter-spacing: 1px; padding-left: 3px;">
+                            Giá: {{product.price | number:0}} <span style="font-size: 13px; color: #888; font-weight: 400;">VNĐ</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="add-to-link">
+                      <ul>
+                        <li class="cart">
+                          <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD TO CART</a>
+                        </li>
+                        <li>
+                          <a href="htmldemo.net/rozer/rozer/wishlist.html"><i class="icon-heart"></i></a>
+                        </li>
+                        <li>
+                          <a href="htmldemo.net/rozer/rozer/compare.html"><i class="icon-shuffle"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </div>
+                <!-- Nút xem tiếp -->
+                <div class="feature-slider-item swiper-slide product-item" style="display: flex; align-items: center; justify-content: center; height: auto; min-height: 200px;">
+                  <a href="javascript:void(0);" ng-click="setProductType(tab.type)" id="dynamic-button">
+                    Xem thêm
+                  </a>
+                </div>
+              </div>
+              <!-- Add Arrows -->
+              <div class="swiper-buttons">
+                <div class="swiper-button-next custom-swiper-btn">
+                  <i class="fa fa-chevron-right"></i>
+                </div>
+                <div class="swiper-button-prev custom-swiper-btn">
+                  <i class="fa fa-chevron-left"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Category Tab Area end -->
+  <!-- Category Tab Area Start -->
+  <section class="category-tab-area mb-40px">
+  <div class="container">
+    <div class="section-title d-flex">
+      <h2>Máy chủ - mạng</h2>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs sub-category d-flex justify-content-end flex-grow-1">
+        <li class="nav-item" ng-repeat="tab in tabTwo" ng-class="{ 'active': $index === 0 }">
+          <a class="nav-link" ng-class="{ 'active': $index === 0 }" data-bs-toggle="tab" ng-href="#tab-{{tab.id}}">{{tab.name}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="tab-content banner-area">
+      <div ng-repeat="tab in tabTwo" id="tab-{{tab.id}}" class="tab-pane" ng-class="{ 'active': $index === 0 }">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 mt-lm-55px">
+            <div class="banner-wrapper">
+              <a href="shop-4-column.html">
+                <img src="htmldemo.net/rozer/rozer/assets/images/banner-image/6.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8">
+            <div class="feature-slider-2 network-slider slider-nav-style-1">
+              <div class="feature-slider-wrapper swiper-wrapper">
+                <!-- Single Item -->
+                <div class="feature-slider-item swiper-slide" ng-repeat="product in tab.products">
+                  <article class="list-product">
+                    <div class="img-block">
+                      <a ng-href="htmldemo.net/rozer/rozer/single-product.html?id={{product.id}}&type={{product.productTypeName}}" class="thumbnail">
+                        <img class="first-img" ng-src="{{product.urls[0]}}" alt="{{product.name}}" />
+                        <img class="second-img" ng-src="{{product.urls[1]}}" alt="{{product.name}}" />
+                      </a>
+                    </div>
+                    <ul class="product-flag">
+                      <li class="new">New</li>
+                    </ul>
+                    <div class="product-decs" style="padding-bottom: 8px;">
+                      <a class="inner-link" ng-href="htmldemo.net/rozer/rozer/single-product.html?id={{product.id}}&type={{product.productTypeName}}">
+                        <span style="font-size: 16px; font-weight: 700; color: #1976d2; display: block; margin-bottom: 6px; line-height: 1.3;">
+                          {{product.name}}
+                        </span>
+                      </a>
+                      <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                        <span class="product-link" style="background: #e3f2fd; padding: 3px 10px; border-radius: 4px; display: inline-block;">
+                          <b>Số lượng:</b> {{product.stock}}
+                        </span>
+                      </div>
+                      <div class="pricing-meta" style="margin-bottom: 0;">
+                        <ul style="padding: 0; margin: 0; list-style: none;">
+                          <li class="old-price not-cut" style="font-size: 17px; color: #e53935; font-weight: 700; letter-spacing: 1px; padding-left: 3px;">
+                            Giá: {{product.price | number:0}} <span style="font-size: 13px; color: #888; font-weight: 400;">VNĐ</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="add-to-link">
+                      <ul>
+                        <li class="cart">
+                          <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD TO CART</a>
+                        </li>
+                        <li>
+                          <a href="htmldemo.net/rozer/rozer/wishlist.html"><i class="icon-heart"></i></a>
+                        </li>
+                        <li>
+                          <a href="htmldemo.net/rozer/rozer/compare.html"><i class="icon-shuffle"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </div>
+                <!-- Nút xem tiếp -->
+                <div class="feature-slider-item swiper-slide product-item" style="display: flex; align-items: center; justify-content: center; height: auto; min-height: 200px;">
+                  <a href="javascript:void(0);" ng-click="setProductType(tab.type)" id="dynamic-button">
+                    Xem thêm
+                  </a>
+                </div>
+              </div>
+              <!-- Add Arrows -->
+              <div class="swiper-buttons">
+                <div class="swiper-button-next custom-swiper-btn">
+                  <i class="fa fa-chevron-right"></i>
+                </div>
+                <div class="swiper-button-prev custom-swiper-btn">
+                  <i class="fa fa-chevron-left"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Category Tab Area end -->
+
+  <!-- Brand area start -->
+  <div class="brand-area mb-60px">
+    <div class="container">
+      <div class="brand-slider slider-nav-style-1 slider-nav-style-2">
+        <div class="brand-slider-wrapper swiper-wrapper">
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/1.jpg" alt="" /></a>
+          </div>
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/2.jpg" alt="" /></a>
+          </div>
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/3.jpg" alt="" /></a>
+          </div>
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/4.jpg" alt="" /></a>
+          </div>
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/5.jpg" alt="" /></a>
+          </div>
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/1.jpg" alt="" /></a>
+          </div>
+          <div class="brand-slider-item swiper-slide">
+            <a href="#"><img src="htmldemo.net/rozer/rozer/assets/images/brand-logo/2.jpg" alt="" /></a>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-buttons">
+          <div class="swiper-button-next custom-swiper-btn">
+            <i class="fa fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev custom-swiper-btn">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Brand area end -->
+
+  <!-- Recently Add area start -->
+  <div class="recent-add-area mb-60px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-title">
+            <h2 class="section-heading">Camera giám sát</h2>
+          </div>
+        </div>
+      </div>
+      <div class="recent-slider slider-nav-style-1">
+        <div class="recent-slider-wrapper swiper-wrapper">
+          <div class="recent-slider-item swiper-slide" ng-repeat="camera in listCamera">
+            <article class="list-product">
+              <div class="img-block">
+                <a href="htmldemo.net/rozer/rozer/single-product.html?id={{camera.id}}&type={{camera.productTypeName}}"
+                  class="thumbnail">
+                  <img class="first-img" ng-src="{{camera.urls[0]}}" alt="{{camera.name}}" />
+                  <img class="second-img" ng-src="{{camera.urls[1]}}" alt="{{camera.name}}" />
+                </a>
+                <div class="quick-view" ng-click="openQuickView(camera)">
+                  <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    <i class="icon-magnifier icons"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-decs">
+                <a class="inner-link"
+                  href="htmldemo.net/rozer/rozer/single-product.html?id={{camera.id}}&type={{camera.productTypeName}}">
+                  <span>{{camera.name}}</span>
+                </a>
+                <div style="font-size: 13px; color: #444; margin-bottom: 6px;">
+                  <span class="product-link"
+                    style="background: #e3f2fd; padding: 3px 10px; border-radius: 4px; display: inline-block;">
+                    <b>Số lượng:</b> {{camera.stock}}
+                  </span>
+                </div>
+                <div class="pricing-meta">
+                  <ul>
+                    <li class="old-price not-cut">Giá {{camera.price | number:0}} VNĐ</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- nút xem tiếp -->
+          <div class="recent-slider-item swiper-slide product-item"
+            style="display: flex; align-items: center; justify-content: center; height: auto;">
+            <a href="javascript:void(0);" onclick="setProductType('camera')" id="dynamic-button">
+              Xem thêm
+            </a>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-buttons">
+          <div class="swiper-button-next custom-swiper-btn">
+            <i class="fa fa-chevron-right"></i>
+          </div>
+          <div class="swiper-button-prev custom-swiper-btn">
+            <i class="fa fa-chevron-left"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Recently Add area end -->
+  <!-- Style nút xem thêm -->
+  <style>
+    /* Nút chính */
+    #dynamic-button {
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #86b1e0, #5992c5);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Ánh sáng lướt qua */
+    #dynamic-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      /* Đặt ngoài tầm nhìn ban đầu */
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: skewX(-45deg);
+      /* Tạo góc nghiêng cho ánh sáng */
+      transition: all 0.3s ease;
+    }
+
+    /* Hiệu ứng khi hover */
+    #dynamic-button:hover::before {
+      left: 100%;
+      /* Lướt qua toàn bộ nút */
+    }
+
+    #dynamic-button:hover {
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
+      /* Nổi bật hơn khi hover */
+      transform: translateY(-3px);
+      /* Nhô lên khi hover */
+    }
+
+    #dynamic-button:active {
+      transform: translateY(1px);
+      /* Nhấn xuống khi click */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+      /* Giảm đổ bóng */
+    }
+  </style>
+  <!-- Đóng style nút xem thêm -->
+  <!-- Banner Area Start -->
+  <div class="banner-area mb-30px">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <div class="banner-wrapper">
+            <a href="shop-4-column.html"><img src="htmldemo.net/rozer/rozer/assets/images/banner-image/7.jpg"
+                alt="" /></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <div class="banner-wrapper">
+            <a href="shop-4-column.html"><img src="htmldemo.net/rozer/rozer/assets/images/banner-image/8.jpg"
+                alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Banner Area End -->
+  <!-- Footer Area Start -->
+  <div class="footer-area">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-4 mb-md-30px mb-lm-30px">
+              <div class="single-wedge">
+                <h4 class="footer-herading">ABOUT US</h4>
+                <p class="text-infor">
+                  112C Group 6, Da Sy Kien Hung Ward, Ha Dong District, Hanoi
+                  City
+                </p>
+                <div class="need-help">
+                  <p class="phone-info">
+                    NEED HELP?
+                    <span> 0834 32 32 86 </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-md-30px mb-lm-30px">
+              <div class="single-wedge">
+                <h4 class="footer-herading">Information</h4>
+                <div class="footer-links">
+                  <ul>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="htmldemo.net/rozer/rozer/about.html">About Us</a></li>
+                    <li><a href="#">Secure Payment</a></li>
+                    <li><a href="htmldemo.net/rozer/rozer/contact.html">Contact Us</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Stores</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mb-sm-30px mb-lm-30px">
+              <div class="single-wedge">
+                <h4 class="footer-herading">CUSTOM LINKS</h4>
+                <div class="footer-links">
+                  <ul>
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Prices Drop</a></li>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">Best Sales</a></li>
+                    <li><a href="htmldemo.net/rozer/rozer/login.html">Login</a></li>
+                    <li><a href="htmldemo.net/rozer/rozer/my-account.html">My Account</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="single-wedge">
+                <h4 class="footer-herading">NEWSLETTER</h4>
+                <div class="subscrib-text">
+                  <p>
+                    Sign up to receive the latest updates from us on products
+                    and promotional programs.
+                  </p>
+                </div>
+                <div id="mc_embed_signup" class="subscribe-form">
+                  <form id="mc-embedded-subscribe-form" class="validate" novalidate="" target="_blank"
+                    name="mc-embedded-subscribe-form" method="post"
+                    action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
+                    <div id="mc_embed_signup_scroll" class="mc-form">
+                      <input class="email" type="email" required="" placeholder="Enter your email here.." name="EMAIL"
+                        value="" />
+                      <div class="mc-news" aria-hidden="true" style="position: absolute; left: -5000px">
+                        <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" />
+                      </div>
+                      <div class="clear">
+                        <input id="mc-embedded-subscribe" class="button" type="submit" name="subscribe"
+                          value="Sign Up" />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="social-info">
+                  <ul>
+                    <li>
+                      <a href="#"><i class="icon-social-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon-social-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon-social-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="icon-social-google"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="copy-text">
+                © 2024 <strong>Hoang Duong Computer</strong> Made With
+                <i class="fa fa-heart" style="color: red" aria-hidden="true"></i>
+                By
+                <a class="company-name" href="https://hasthemes.com/">
+                  <strong> tunguyentrong</strong></a>.
+              </p>
+            </div>
+            <div class="col-md-6 text-end">
+              <img class="payment-img" src="htmldemo.net/rozer/rozer/assets/images/icons/payment.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer Area End -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" data-bs-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+            ng-click="clearSelectedProduct()">
+            <span aria-hidden="true">x</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12 mb-lm-100px mb-sm-30px">
+              <!-- Swiper -->
+              <div class="swiper-container gallery-top" id="galleryTop">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" ng-repeat="image in selectedProduct.ImageUrls">
+                    <img class="img-responsive m-auto" ng-src="{{image}}" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-container gallery-thumbs" id="galleryThumbs">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" ng-repeat="image in selectedProduct.ImageUrls">
+                    <img class="img-responsive m-auto" ng-src="{{image}}" alt="" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7 col-sm-12 col-xs-12">
+              <div class="product-details-content quickview-content">
+                <h2 style="color: #0F62AC;">{{selectedProduct.Name}}</h2>
+                <p class="reference">Thương hiệu:<span> {{selectedProduct.Manufacturer}}</span></p>
+                <div class="pro-details-rating-wrap">
+                  <div class="rating-product">
+                    <i class="ion-android-star"></i>
+                    <i class="ion-android-star"></i>
+                    <i class="ion-android-star"></i>
+                    <i class="ion-android-star"></i>
+                    <i class="ion-android-star"></i>
+                  </div>
+                  <!-- <span class="read-review"><a class="reviews" href="#">Read reviews (1)</a></span> -->
+                </div>
+                <div class="pricing-meta">
+                  <ul>
+                    <li style="color: red;" class="old-price not-cut">{{selectedProduct.Price}} VNĐ</li>
+                  </ul>
+                </div>
+                <p class="quickview-para">
+                  {{selectedProduct.Description}}
+                </p>
+                <!-- <div class="pro-details-size-color">
+                  <div class="pro-details-color-wrap">
+                    <span>Color</span>
+                    <div class="pro-details-color-content">
+                      <ul>
+                        <li class="blue"></li>
+                        <li class="maroon active"></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="pro-details-quality">
+                  <div class="cart-plus-minus">
+                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
+                  </div>
+                  <div class="pro-details-cart btn-hover">
+                    <a href="#"> + Add To Cart</a>
+                  </div>
+                </div>
+                <div class="pro-details-wish-com">
+                  <div class="pro-details-wishlist">
+                    <a href="htmldemo.net/rozer/rozer/wishlist.html"><i class="ion-android-favorite-outline"></i>Add to
+                      wishlist</a>
+                  </div>
+                  <div class="pro-details-compare">
+                    <a href="htmldemo.net/rozer/rozer/compare.html"><i class="ion-ios-shuffle-strong"></i>Add to
+                      compare</a>
+                  </div>
+                </div>
+                <div class="pro-details-social-info">
+                  <span>Share</span>
+                  <div class="social-info">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="ion-social-facebook"></i></a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="ion-social-twitter"></i></a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="ion-social-google"></i></a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="ion-social-instagram"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .swiper-buttons .custom-swiper-btn {
+      width: 40px;
+      height: 40px;
+      background: #1976d2;
+      /* Màu nền header */
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      margin: 0 6px;
+      border: none;
+      box-shadow: none;
+    }
+
+    .swiper-buttons .custom-swiper-btn:hover {
+      background: #12509c;
+      color: #fff;
+    }
+
+    .swiper-buttons {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0;
+      margin-top: 10px;
+    }
+  </style>
+  <!-- Footer Area End -->
+  <!-- Modal end -->
+  <!-- JS
+============================================ -->
+
+  <!-- Vendors JS -->
+  <!-- <script src="htmldemo.net/rozer/rozer/assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/vendor/modernizr-3.11.2.min.js"></script> -->
+
+  <!-- Plugins JS -->
+  <!-- <script src="htmldemo.net/rozer/rozer/assets/js/plugins/jquery-ui.min.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/plugins/swiper.min.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/plugins/countdown.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/plugins/scrollup.js"></script>
+        <script src="htmldemo.net/rozer/rozer/assets/js/plugins/elevateZoom.js"></script> -->
+
+  <script>
+    function setProductType(type) {
+      localStorage.setItem('productType', type);
+      window.location.href = 'htmldemo.net/rozer/rozer/listProduct.html'; // Chuyển hướng đến trang listProduct.html
+    }
+  </script>
+  <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+  <script src="htmldemo.net/rozer/rozer/assets/js/vendor/vendor.min.js"></script>
+  <script src="htmldemo.net/rozer/rozer/assets/js/plugins/plugins.min.js"></script>
+
+  <script src="htmldemo.net/rozer/lib/angular.min.js"></script>
+  <!-- Main Activation JS -->
+  <script src="htmldemo.net/rozer/rozer/assets/js/main.js"></script>
+  <script src="htmldemo.net/rozer/rozer/assets/js/Service.js"></script>
+  <script src="htmldemo.net/rozer/rozer/assets/js/indexController.js"></script>
+</body>
+
+<!-- Mirrored from htmldemo.net/rozer/rozer/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2024 02:13:30 GMT -->
+
+</html>
