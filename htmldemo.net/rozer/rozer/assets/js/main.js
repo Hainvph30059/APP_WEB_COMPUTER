@@ -827,6 +827,10 @@ $(function () {
             return $http.put(API_CONFIG.BASE_URL + endpoint, data);
         };
 
+        this.patch = function(endpoint, data) {
+            return $http.patch(API_CONFIG.BASE_URL + endpoint, data);
+        };
+
         this.delete = function(endpoint) {
             return $http.delete(API_CONFIG.BASE_URL + endpoint);
         };
@@ -908,6 +912,130 @@ $(function () {
         // Lấy cart hiện tại (đã cache)
         this.getCurrentCart = function() {
             return cart;
+        };
+    });
+
+    // ✅ SHIPPING ADDRESS SERVICE - Quản lý địa chỉ giao hàng
+    app.service('ShippingAddressService', function(HttpService) {
+        var self = this;
+
+        // Lấy danh sách địa chỉ của user
+        this.getAddresses = function() {
+            return HttpService.get('/shipping-addresses').then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to get addresses');
+            });
+        };
+
+        // Tạo địa chỉ mới
+        this.createAddress = function(addressData) {
+            return HttpService.post('/shipping-addresses', addressData).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to create address');
+            });
+        };
+
+        // Cập nhật địa chỉ
+        this.updateAddress = function(id, addressData) {
+            return HttpService.put('/shipping-addresses/' + id, addressData).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to update address');
+            });
+        };
+
+        // Xóa địa chỉ
+        this.deleteAddress = function(id) {
+            return HttpService.delete('/shipping-addresses/' + id).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to delete address');
+            });
+        };
+
+        // Đặt địa chỉ mặc định
+        this.setDefaultAddress = function(id) {
+            return HttpService.patch('/shipping-addresses/' + id + '/default', null).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to set default address');
+            });
+        };
+
+        // Lấy danh sách tỉnh/thành phố
+        this.getProvinces = function() {
+            return HttpService.get('/ghn/provinces').then(function(response) {
+                if (response.data.code === 1000) {
+                    var result = response.data.result;
+                    // Nếu result là object chứa array data, lấy array đó
+                    if (result && typeof result === 'object' && !Array.isArray(result)) {
+                        if (result.data && Array.isArray(result.data)) {
+                            return result.data;
+                        } else if (result.provinces && Array.isArray(result.provinces)) {
+                            return result.provinces;
+                        }
+                    }
+                    // Nếu result đã là array
+                    if (Array.isArray(result)) {
+                        return result;
+                    }
+                    return [];
+                }
+                throw new Error(response.data.message || 'Failed to get provinces');
+            });
+        };
+
+        // Lấy danh sách quận/huyện theo tỉnh
+        this.getDistricts = function(provinceId) {
+            return HttpService.get('/ghn/districts', { provinceId: provinceId }).then(function(response) {
+                if (response.data.code === 1000) {
+                    var result = response.data.result;
+                    // Nếu result là object chứa array data
+                    if (result && typeof result === 'object' && !Array.isArray(result)) {
+                        if (result.data && Array.isArray(result.data)) {
+                            return result.data;
+                        } else if (result.districts && Array.isArray(result.districts)) {
+                            return result.districts;
+                        }
+                    }
+                    // Nếu result đã là array
+                    if (Array.isArray(result)) {
+                        return result;
+                    }
+                    return [];
+                }
+                throw new Error(response.data.message || 'Failed to get districts');
+            });
+        };
+
+        // Lấy danh sách phường/xã theo quận
+        this.getWards = function(districtId) {
+            return HttpService.get('/ghn/wards', { districtId: districtId }).then(function(response) {
+                if (response.data.code === 1000) {
+                    var result = response.data.result;
+                    // Nếu result là object chứa array data
+                    if (result && typeof result === 'object' && !Array.isArray(result)) {
+                        if (result.data && Array.isArray(result.data)) {
+                            return result.data;
+                        } else if (result.wards && Array.isArray(result.wards)) {
+                            return result.wards;
+                        }
+                    }
+                    // Nếu result đã là array
+                    if (Array.isArray(result)) {
+                        return result;
+                    }
+                    return [];
+                }
+                throw new Error(response.data.message || 'Failed to get wards');
+            });
         };
     });
 

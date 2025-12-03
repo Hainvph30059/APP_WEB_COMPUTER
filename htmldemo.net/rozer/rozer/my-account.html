@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="HoangDuongApp">
   <!-- Mirrored from htmldemo.net/rozer/rozer/../../../index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2024 02:13:27 GMT -->
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Hoang Duong Computer</title>
+    <title>Hoang Duong Computer - My Account</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="" />
     <meta
@@ -92,6 +92,211 @@
         /* Ẩn nội dung trang khi đang check auth */
         body.auth-checking > *:not(#auth-loading-overlay) {
             visibility: hidden;
+        }
+
+        /* Address Management Styles */
+        .address-card {
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .address-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .address-card.border-primary {
+            border-width: 2px;
+            box-shadow: 0 2px 8px rgba(15, 98, 172, 0.2);
+        }
+        
+        .gap-2 {
+            gap: 0.5rem;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem 0.75rem;
+            width: 100%;
+            font-size: 14px;
+            height: auto;
+            min-height: 38px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .form-control option {
+            padding: 8px;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .form-control select {
+            appearance: auto;
+            -webkit-appearance: menulist;
+            -moz-appearance: menulist;
+        }
+        
+        .form-control:focus {
+            border-color: #0F62AC;
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(15, 98, 172, 0.25);
+        }
+        
+        .form-control:disabled {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+        
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1;
+            border-radius: 0.25rem;
+        }
+        
+        .bg-primary {
+            background-color: #0F62AC !important;
+            color: white;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: #0F62AC;
+            color: white;
+            border-color: #0F62AC;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0a4d87;
+            border-color: #0a4d87;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        
+        .btn-outline-primary {
+            color: #0F62AC;
+            border-color: #0F62AC;
+            background-color: transparent;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: #0F62AC;
+            color: white;
+        }
+        
+        .btn-outline-danger {
+            color: #dc3545;
+            border-color: #dc3545;
+            background-color: transparent;
+        }
+        
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn-outline-success {
+            color: #28a745;
+            border-color: #28a745;
+            background-color: transparent;
+        }
+        
+        .btn-outline-success:hover {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .text-danger {
+            color: #dc3545 !important;
+        }
+        
+        .text-muted {
+            color: #6c757d !important;
+        }
+        
+        .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .py-5 {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+        }
+        
+        .mt-3 {
+            margin-top: 1rem !important;
+        }
+        
+        .fa-spin {
+            animation: fa-spin 1s infinite linear;
+        }
+        
+        @keyframes fa-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
   </head>
@@ -997,50 +1202,224 @@
                         data-bs-toggle="collapse"
                         data-parent="#faq"
                         href="#my-account-3"
-                        >Modify your address book entries
+                        >Quản lý sổ địa chỉ
                       </a>
                     </h3>
                   </div>
                   <div id="my-account-3" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <div class="myaccount-info-wrapper">
-                        <div class="account-info-wrapper">
-                          <h4>Address Book Entries</h4>
+                      <div class="myaccount-info-wrapper" ng-controller="myAccount">
+                        
+                        <!-- Header with Add Button -->
+                        <div class="account-info-wrapper d-flex justify-content-between align-items-center mb-3">
+                          <h4>Sổ địa chỉ</h4>
+                          <button class="btn btn-primary btn-sm" ng-click="openAddForm()" ng-if="!showForm">
+                            <i class="fa fa-plus"></i> Thêm địa chỉ mới
+                          </button>
                         </div>
-                        <div class="entries-wrapper">
+
+                        <!-- Address Form (Add/Edit) -->
+                        <div class="address-form-wrapper mb-4" ng-if="showForm">
+                          <div class="card">
+                            <div class="card-header bg-light">
+                              <h5 class="mb-0">
+                                <span ng-if="!isEditMode">Thêm địa chỉ mới</span>
+                                <span ng-if="isEditMode">Chỉnh sửa địa chỉ</span>
+                              </h5>
+                            </div>
+                            <div class="card-body">
+                              <form name="addressFormElement">
+                                <div class="row">
+                                  <!-- Họ tên -->
+                                  <div class="col-md-6 mb-3">
+                                    <label class="form-label">Họ và tên <span class="text-danger">*</span></label>
+                                    <input 
+                                      type="text" 
+                                      class="form-control" 
+                                      ng-model="addressForm.fullName"
+                                      placeholder="Nhập họ và tên"
+                                      required>
+                                  </div>
+
+                                  <!-- Số điện thoại -->
+                                  <div class="col-md-6 mb-3">
+                                    <label class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                                    <input 
+                                      type="tel" 
+                                      class="form-control" 
+                                      ng-model="addressForm.phoneNumber"
+                                      placeholder="Nhập số điện thoại (10-11 chữ số)"
+                                      required>
+                                  </div>
+
+                                  <!-- Email -->
+                                  <div class="col-md-12 mb-3">
+                                    <label class="form-label">Email <span class="text-danger">*</span></label>
+                                    <input 
+                                      type="email" 
+                                      class="form-control" 
+                                      ng-model="addressForm.email"
+                                      placeholder="Nhập địa chỉ email"
+                                      required>
+                                  </div>
+
+                                  <!-- Tỉnh/Thành phố -->
+                                  <div class="col-md-4 mb-3">
+                                    <label class="form-label">Tỉnh/Thành phố <span class="text-danger">*</span></label>
+                                    <select 
+                                      class="form-control" 
+                                      ng-model="addressForm.provinceId"
+                                      ng-change="onProvinceChange()"
+                                      ng-disabled="loading.provinces"
+                                      ng-options="province.ProvinceID as province.ProvinceName for province in provinces"
+                                      required>
+                                      <option value="">-- Chọn tỉnh/thành phố --</option>
+                                    </select>
+                                    <small ng-if="loading.provinces" class="text-muted">Đang tải...</small>
+                                  </div>
+
+                                  <!-- Quận/Huyện -->
+                                  <div class="col-md-4 mb-3">
+                                    <label class="form-label">Quận/Huyện <span class="text-danger">*</span></label>
+                                    <select 
+                                      class="form-control" 
+                                      ng-model="addressForm.districtId"
+                                      ng-change="onDistrictChange()"
+                                      ng-disabled="!addressForm.provinceId || loading.districts"
+                                      ng-options="district.DistrictID as district.DistrictName for district in districts"
+                                      required>
+                                      <option value="">-- Chọn quận/huyện --</option>
+                                    </select>
+                                    <small ng-if="loading.districts" class="text-muted">Đang tải...</small>
+                                  </div>
+
+                                  <!-- Phường/Xã -->
+                                  <div class="col-md-4 mb-3">
+                                    <label class="form-label">Phường/Xã <span class="text-danger">*</span></label>
+                                    <select 
+                                      class="form-control" 
+                                      ng-model="addressForm.wardCode"
+                                      ng-change="onWardChange()"
+                                      ng-disabled="!addressForm.districtId || loading.wards"
+                                      ng-options="ward.WardCode as ward.WardName for ward in wards"
+                                      required>
+                                      <option value="">-- Chọn phường/xã --</option>
+                                    </select>
+                                    <small ng-if="loading.wards" class="text-muted">Đang tải...</small>
+                                  </div>
+
+                                  <!-- Địa chỉ chi tiết -->
+                                  <div class="col-12 mb-3">
+                                    <label class="form-label">Địa chỉ chi tiết <span class="text-danger">*</span></label>
+                                    <textarea 
+                                      class="form-control" 
+                                      ng-model="addressForm.detailAddress"
+                                      placeholder="Số nhà, tên đường..."
+                                      rows="2"
+                                      required></textarea>
+                                  </div>
+                                </div>
+
+                                <!-- Form Actions -->
+                                <div class="d-flex justify-content-end gap-2">
+                                  <button 
+                                    type="button" 
+                                    class="btn btn-secondary" 
+                                    ng-click="closeForm()"
+                                    ng-disabled="loading.saving">
+                                    Hủy
+                                  </button>
+                                  <button 
+                                    type="button" 
+                                    class="btn btn-primary" 
+                                    ng-click="saveAddress()"
+                                    ng-disabled="loading.saving">
+                                    <span ng-if="!loading.saving">
+                                      <i class="fa fa-save"></i> 
+                                      <span ng-if="!isEditMode">Thêm địa chỉ</span>
+                                      <span ng-if="isEditMode">Cập nhật</span>
+                                    </span>
+                                    <span ng-if="loading.saving">
+                                      <i class="fa fa-spinner fa-spin"></i> Đang lưu...
+                                    </span>
+                                  </button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div ng-if="loading.addresses" class="text-center py-5">
+                          <i class="fa fa-spinner fa-spin fa-3x text-primary"></i>
+                          <p class="mt-3">Đang tải danh sách địa chỉ...</p>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div ng-if="!loading.addresses && addresses.length === 0 && !showForm" class="text-center py-5">
+                          <i class="fa fa-map-marker fa-3x text-muted mb-3"></i>
+                          <h5 class="text-muted">Chưa có địa chỉ nào</h5>
+                          <p class="text-muted">Thêm địa chỉ giao hàng để thanh toán nhanh hơn</p>
+                          <button class="btn btn-primary mt-3" ng-click="openAddForm()">
+                            <i class="fa fa-plus"></i> Thêm địa chỉ đầu tiên
+                          </button>
+                        </div>
+
+                        <!-- Address List -->
+                        <div class="addresses-list" ng-if="!loading.addresses && addresses.length > 0">
                           <div class="row">
-                            <div
-                              class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
-                            >
-                              <div class="entries-info text-center">
-                                <p>Jone Deo</p>
-                                <p>hastech</p>
-                                <p>28 Green Tower,</p>
-                                <p>Street Name.</p>
-                                <p>New York City,</p>
-                                <p>USA</p>
-                              </div>
-                            </div>
-                            <div
-                              class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
-                            >
-                              <div class="entries-edit-delete text-center">
-                                <a class="edit" href="#">Edit</a>
-                                <a href="#">Delete</a>
+                            <div 
+                              class="col-md-6 mb-3" 
+                              ng-repeat="address in addresses">
+                              <div class="card address-card" ng-class="{'border-primary': address.isDefault}">
+                                <div class="card-body">
+                                  <!-- Default Badge -->
+                                  <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">{{address.recipientName}}</h5>
+                                    <span 
+                                      ng-if="address.isDefault" 
+                                      class="badge bg-primary">
+                                      Mặc định
+                                    </span>
+                                  </div>
+
+                                  <!-- Contact Info -->
+                                  <p class="mb-1">
+                                    <i class="fa fa-phone text-muted"></i>
+                                    <strong>{{address.phoneNumber}}</strong>
+                                  </p>
+
+                                  <!-- Address -->
+                                  <p class="mb-3 text-muted">
+                                    <i class="fa fa-map-marker text-muted"></i>
+                                    {{getFullAddress(address)}}
+                                  </p>
+
+                                  <!-- Actions -->
+                                  <div class="d-flex gap-2">
+                                    <button 
+                                      class="btn btn-sm btn-outline-primary" 
+                                      ng-click="openEditForm(address)">
+                                      <i class="fa fa-edit"></i> Sửa
+                                    </button>
+                                    <button 
+                                      class="btn btn-sm btn-outline-danger" 
+                                      ng-click="deleteAddress(address)">
+                                      <i class="fa fa-trash"></i> Xóa
+                                    </button>
+                                    <button 
+                                      ng-if="!address.isDefault"
+                                      class="btn btn-sm btn-outline-success" 
+                                      ng-click="setDefault(address)">
+                                      <i class="fa fa-check"></i> Đặt mặc định
+                                    </button>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="billing-back-btn">
-                          <div class="billing-back">
-                            <a href="#"
-                              ><i class="icon-arrow-up-circle"></i> back</a
-                            >
-                          </div>
-                          <div class="billing-btn">
-                            <button type="submit">Continue</button>
-                          </div>
-                        </div>
+
                       </div>
                     </div>
                   </div>
@@ -1411,8 +1790,14 @@
     <script src="assets/js/vendor/vendor.min.js"></script>
     <script src="assets/js/plugins/plugins.min.js"></script>
 
-    <!-- Main Activation JS -->
+    <!-- AngularJS -->
+    <script src="../lib/angular.min.js"></script>
+
+    <!-- Main Activation JS - AngularJS Module & Services -->
     <script src="assets/js/main.js"></script>
+
+    <!-- My Account Controller -->
+    <script src="assets/js/controller/myAccountController.js"></script>
     
     <!-- Hide Loading Overlay sau khi auth check xong -->
     <script>
