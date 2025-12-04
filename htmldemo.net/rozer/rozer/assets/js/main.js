@@ -1039,4 +1039,96 @@ $(function () {
         };
     });
 
+    // ✅ ORDER SERVICE - Quản lý đơn hàng
+    app.service('OrderService', function(HttpService) {
+        var self = this;
+
+        // Lấy danh sách đơn hàng
+        this.getOrders = function() {
+            return HttpService.get('/orders').then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result || [];
+                }
+                throw new Error(response.data.message || 'Failed to get orders');
+            });
+        };
+
+        // Lấy chi tiết đơn hàng
+        this.getOrderById = function(orderId) {
+            return HttpService.get('/orders/' + orderId).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to get order details');
+            });
+        };
+
+        // Hủy đơn hàng (chỉ khi status = pending)
+        this.cancelOrder = function(orderId, reason) {
+            return HttpService.post('/orders/' + orderId + '/cancel', { reason: reason }).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to cancel order');
+            });
+        };
+
+        // Helper: Format currency
+        this.formatCurrency = function(amount) {
+            if (!amount) return '0₫';
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+        };
+
+        // Helper: Format date
+        this.formatDate = function(dateString) {
+            if (!dateString) return '';
+            var date = new Date(dateString);
+            return date.toLocaleString('vi-VN', { 
+                year: 'numeric', 
+                month: '2-digit', 
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        };
+
+        // Helper: Get status label
+        this.getStatusLabel = function(status) {
+            var labels = {
+                'pending': 'Chờ xác nhận',
+                'confirmed': 'Đã xác nhận',
+                'processing': 'Đang xử lý',
+                'shipping': 'Đang giao',
+                'delivered': 'Đã giao',
+                'completed': 'Hoàn thành',
+                'cancelled': 'Đã hủy'
+            };
+            return labels[status] || status;
+        };
+
+        // Helper: Get status badge class
+        this.getStatusBadgeClass = function(status) {
+            var classes = {
+                'pending': 'badge-warning',
+                'confirmed': 'badge-info',
+                'processing': 'badge-primary',
+                'shipping': 'badge-purple',
+                'delivered': 'badge-success',
+                'completed': 'badge-success',
+                'cancelled': 'badge-danger'
+            };
+            return classes[status] || 'badge-secondary';
+        };
+
+        // Helper: Get payment status label
+        this.getPaymentStatusLabel = function(status) {
+            var labels = {
+                'unpaid': 'Chưa thanh toán',
+                'paid': 'Đã thanh toán',
+                'refunded': 'Đã hoàn tiền'
+            };
+            return labels[status] || status;
+        };
+    });
+
 })();

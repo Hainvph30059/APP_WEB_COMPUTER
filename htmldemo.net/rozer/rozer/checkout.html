@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="HoangDuongApp" ng-cloak>
   <!-- Mirrored from htmldemo.net/rozer/rozer/../../../index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2024 02:13:27 GMT -->
   <head>
     <meta charset="utf-8" />
@@ -44,6 +44,13 @@
 
     <!-- Main Style CSS -->
     <!-- <link rel="stylesheet" href="assets/css/style.css" />     -->
+    
+    <!-- AngularJS ng-cloak to hide uncompiled content -->
+    <style>
+      [ng-cloak], [ng\:cloak], [data-ng-cloak], .ng-cloak {
+        display: none !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -806,7 +813,7 @@
             <div class="breadcrumb-content">
               <ul class="nav">
                 <li><a href="../../..../../..../../../index.html">Home</a></li>
-                <li>Checkout</li>
+                <li>Đơn hàng của tôi</li>
               </ul>
             </div>
           </div>
@@ -814,313 +821,1635 @@
       </div>
     </div>
     <!-- Breadcrumb Area End-->
-    <!-- checkout area start -->
-    <div class="checkout-area mt-60px mb-40px">
+    <!-- Orders Management Area Start -->
+    <div class="orders-area mt-60px mb-40px" ng-controller="ordersController">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-7">
-            <div class="billing-info-wrap">
-              <h3>Billing Details</h3>
-              <div class="row">
-                <div class="col-lg-6 col-md-6">
-                  <div class="billing-info mb-20px">
-                    <label>First Name</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="billing-info mb-20px">
-                    <label>Last Name</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="billing-info mb-20px">
-                    <label>Company Name</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="billing-select mb-20px">
-                    <label>Country</label>
-                    <select>
-                      <option>Select a country</option>
-                      <option>Azerbaijan</option>
-                      <option>Bahamas</option>
-                      <option>Bahrain</option>
-                      <option>Bangladesh</option>
-                      <option>Barbados</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="billing-info mb-20px">
-                    <label>Street Address</label>
-                    <input
-                      class="billing-address"
-                      placeholder="House number and street name"
-                      type="text"
-                    />
-                    <input
-                      placeholder="Apartment, suite, unit etc."
-                      type="text"
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="billing-info mb-20px">
-                    <label>Town / City</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="billing-info mb-20px">
-                    <label>State / County</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="billing-info mb-20px">
-                    <label>Postcode / ZIP</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="billing-info mb-20px">
-                    <label>Phone</label>
-                    <input type="text" />
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                  <div class="billing-info mb-20px">
-                    <label>Email Address</label>
-                    <input type="text" />
-                  </div>
-                </div>
-              </div>
-              <div class="checkout-account mb-30px">
-                <input class="checkout-toggle2" type="checkbox" />
-                <label>Create an account?</label>
-              </div>
-              <div class="checkout-account-toggle open-toggle2 mb-30">
-                <input placeholder="Email address" type="email" />
-                <input placeholder="Password" type="password" />
-                <button class="btn-hover checkout-btn" type="submit">
-                  register
-                </button>
-              </div>
-              <div class="additional-info-wrap">
-                <h4>Additional information</h4>
-                <div class="additional-info">
-                  <label>Order notes</label>
-                  <textarea
-                    placeholder="Notes about your order, e.g. special notes for delivery. "
-                    name="message"
-                  ></textarea>
-                </div>
-              </div>
-              <div class="checkout-account mt-25">
-                <input class="checkout-toggle" type="checkbox" />
-                <label>Ship to a different address?</label>
-              </div>
-              <div class="different-address open-toggle mt-30px">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6">
-                    <div class="billing-info mb-20px">
-                      <label>First Name</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6">
-                    <div class="billing-info mb-20px">
-                      <label>Last Name</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="billing-info mb-20px">
-                      <label>Company Name</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="billing-select mb-20px">
-                      <label>Country</label>
-                      <select>
-                        <option>Select a country</option>
-                        <option>Azerbaijan</option>
-                        <option>Bahamas</option>
-                        <option>Bahrain</option>
-                        <option>Bangladesh</option>
-                        <option>Barbados</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="billing-info mb-20px">
-                      <label>Street Address</label>
-                      <input
-                        class="billing-address"
-                        placeholder="House number and street name"
-                        type="text"
-                      />
-                      <input
-                        placeholder="Apartment, suite, unit etc."
-                        type="text"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="billing-info mb-20px">
-                      <label>Town / City</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6">
-                    <div class="billing-info mb-20px">
-                      <label>State / County</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6">
-                    <div class="billing-info mb-20px">
-                      <label>Postcode / ZIP</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6">
-                    <div class="billing-info mb-20px">
-                      <label>Phone</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6">
-                    <div class="billing-info mb-20px">
-                      <label>Email Address</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        
+        <!-- Page Title -->
+        <div class="row mb-40px">
+          <div class="col-12">
+            <h2 class="page-title">Đơn hàng của tôi</h2>
+            <p class="text-muted">Quản lý và theo dõi đơn hàng của bạn</p>
           </div>
-          <div class="col-lg-5 mt-md-30px mt-lm-30px">
-            <div class="your-order-area">
-              <h3>Your order</h3>
-              <div class="your-order-wrap gray-bg-4">
-                <div class="your-order-product-info">
-                  <div class="your-order-top">
-                    <ul>
-                      <li>Product</li>
-                      <li>Total</li>
-                    </ul>
-                  </div>
-                  <div class="your-order-middle">
-                    <ul>
-                      <li>
-                        <span class="order-middle-left">Product Name X 1</span>
-                        <span class="order-price">$329 </span>
-                      </li>
-                      <li>
-                        <span class="order-middle-left">Product Name X 1</span>
-                        <span class="order-price">$329 </span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="your-order-bottom">
-                    <ul>
-                      <li class="your-order-shipping">Shipping</li>
-                      <li>Free shipping</li>
-                    </ul>
-                  </div>
-                  <div class="your-order-total">
-                    <ul>
-                      <li class="order-total">Total</li>
-                      <li>$329</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="payment-method">
-                  <div class="payment-accordion element-mrg">
-                    <div class="panel-group" id="accordion">
-                      <div class="panel payment-accordion">
-                        <div class="panel-heading" id="method-one">
-                          <h4 class="panel-title">
-                            <a
-                              data-bs-toggle="collapse"
-                              data-parent="#accordion"
-                              href="#method1"
-                            >
-                              Direct bank transfer
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="method1" class="panel-collapse collapse show">
-                          <div class="panel-body">
-                            <p>
-                              Please send a check to Store Name, Store Street,
-                              Store Town, Store State / County, Store Postcode.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel payment-accordion">
-                        <div class="panel-heading" id="method-two">
-                          <h4 class="panel-title">
-                            <a
-                              class="collapsed"
-                              data-bs-toggle="collapse"
-                              data-parent="#accordion"
-                              href="#method2"
-                            >
-                              Check payments
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="method2" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <p>
-                              Please send a check to Store Name, Store Street,
-                              Store Town, Store State / County, Store Postcode.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="panel payment-accordion">
-                        <div class="panel-heading" id="method-three">
-                          <h4 class="panel-title">
-                            <a
-                              class="collapsed"
-                              data-bs-toggle="collapse"
-                              data-parent="#accordion"
-                              href="#method3"
-                            >
-                              Cash on delivery
-                            </a>
-                          </h4>
-                        </div>
-                        <div id="method3" class="panel-collapse collapse">
-                          <div class="panel-body">
-                            <p>
-                              Please send a check to Store Name, Store Street,
-                              Store Town, Store State / County, Store Postcode.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="Place-order mt-25">
-                <a class="btn-hover" href="#">Place Order</a>
+        </div>
+
+        <!-- Status Filter Tabs -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="order-status-tabs">
+              <div class="status-tabs-wrapper">
+                <button class="status-tab" 
+                        ng-class="{'active': filters.status === statusItem.value}"
+                        ng-click="filterByStatus(statusItem.value)"
+                        ng-repeat="statusItem in statusList">
+                  <span class="tab-label">{{statusItem.label}}</span>
+                  <span class="tab-count">{{statusItem.count}}</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Search Bar -->
+        <div class="row mb-30px">
+          <div class="col-md-6">
+            <div class="search-box">
+              <input type="text" 
+                     class="form-control" 
+                     placeholder="Tìm kiếm theo mã đơn hàng hoặc tên người nhận..."
+                     ng-model="filters.search"
+                     ng-change="applyFilters()">
+              <i class="icon-magnifier"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="row" ng-if="loading.orders">
+          <div class="col-12 text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Đang tải...</span>
+            </div>
+            <p class="mt-3">Đang tải đơn hàng...</p>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="row" ng-if="!loading.orders && filteredOrders.length === 0">
+          <div class="col-12">
+            <div class="empty-state text-center py-5">
+              <i class="icon-bag" style="font-size: 80px; color: #ccc;"></i>
+              <h4 class="mt-3">Không có đơn hàng nào</h4>
+              <p class="text-muted">Bạn chưa có đơn hàng nào trong danh sách này</p>
+              <a href="shop-right-sidebar.html" class="btn btn-primary mt-3">Tiếp tục mua sắm</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders List -->
+        <div class="row" ng-if="!loading.orders && filteredOrders.length > 0">
+          <div class="col-12">
+            
+            <!-- Order Card -->
+            <div class="order-card mb-30px" ng-repeat="order in filteredOrders">
+              <div class="order-card-header">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <h5 class="order-number mb-0">
+                      <i class="icon-doc"></i> {{order.orderNumber}}
+                    </h5>
+                    <small class="text-muted">{{formatDate(order.createdAt)}}</small>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <span class="badge" ng-class="getStatusBadgeClass(order.status)">
+                      {{getStatusLabel(order.status)}}
+                    </span>
+                  </div>
+                  <div class="col-md-4 text-end">
+                    <button class="btn btn-sm btn-outline-primary" 
+                            ng-click="viewOrderDetail(order.id)">
+                      <i class="icon-eye"></i> Xem chi tiết
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger ms-2" 
+                            ng-if="canCancelOrder(order)"
+                            ng-click="cancelOrder(order.id)"
+                            ng-disabled="loading.canceling">
+                      <i class="icon-close"></i> Hủy đơn
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="order-card-body">
+                <div class="row g-3 align-items-stretch">
+                  <!-- Product Info -->
+                  <div class="col-md-8 d-flex">
+                    <div class="order-products flex-fill">
+                      <div class="product-item-wrapper" ng-repeat="item in order.items | limitTo:2">
+                        <div class="product-item">
+                          <div class="product-thumb-wrapper">
+                            <img ng-src="{{item.imageUrl}}" 
+                                 alt="{{item.productName}}"
+                                 class="product-thumb"
+                                 onerror="this.src='assets/images/product-image/placeholder.png'">
+                          </div>
+                          <div class="product-info">
+                            <h6 class="product-name">{{item.productName}}</h6>
+                            <div class="product-specs">
+                              <span class="spec-item" ng-repeat="(key, value) in item.attributes">
+                                <strong>{{key}}:</strong> {{value}}
+                              </span>
+                            </div>
+                            <div class="product-footer">
+                              <span class="product-quantity">
+                                <i class="icon-bag"></i> Số lượng: <strong>{{item.quantity}}</strong>
+                              </span>
+                              <span class="product-price">
+                                {{formatCurrency(item.subtotal)}}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-muted mt-2" ng-if="order.items.length > 2">
+                        ... và {{order.items.length - 2}} sản phẩm khác
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Order Summary -->
+                  <div class="col-md-4 d-flex">
+                    <div class="order-summary flex-fill">
+                      <div class="summary-row">
+                        <span>Tổng sản phẩm:</span>
+                        <strong>{{getTotalItems(order)}} items</strong>
+                      </div>
+                      <div class="summary-row">
+                        <span>Tạm tính:</span>
+                        <span>{{formatCurrency(order.subtotal)}}</span>
+                      </div>
+                      <div class="summary-row">
+                        <span>Phí vận chuyển:</span>
+                        <span>{{formatCurrency(order.shippingFee)}}</span>
+                      </div>
+                      <div class="summary-row" ng-if="order.discount > 0">
+                        <span>Giảm giá:</span>
+                        <span class="text-danger">-{{formatCurrency(order.discount)}}</span>
+                      </div>
+                      <hr>
+                      <div class="summary-row total">
+                        <span>Tổng cộng:</span>
+                        <strong class="text-primary">{{formatCurrency(order.totalAmount)}}</strong>
+                      </div>
+                      <div class="summary-row mt-2">
+                        <small class="text-muted">
+                          <i class="icon-credit-card"></i> {{getPaymentMethodLabel(order.paymentMethod)}}
+                        </small>
+                      </div>
+                      <div class="summary-row">
+                        <small ng-class="{'text-success': order.paymentStatus === 'paid', 'text-warning': order.paymentStatus === 'unpaid'}">
+                          {{getPaymentStatusLabel(order.paymentStatus)}}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="row mt-3">
+                  <div class="col-12">
+                    <div class="shipping-address-compact">
+                      <i class="icon-location-pin"></i>
+                      <strong>{{order.shippingAddress.recipientName}}</strong> - 
+                      {{order.shippingAddress.phoneNumber}} | 
+                      {{order.shippingAddress.fullAddress}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Order Card -->
+
+          </div>
+        </div>
+
+        <!-- Order Detail Modal -->
+        <div class="modal-overlay" ng-if="showDetailModal" ng-click="closeDetailModal()">
+      <div class="modal-content-custom" ng-click="$event.stopPropagation()">
+        
+        <!-- Modal Header -->
+        <div class="modal-header-custom">
+          <h3>Chi tiết đơn hàng</h3>
+          <button class="close-btn" ng-click="closeDetailModal()">×</button>
+        </div>
+
+        <!-- Loading State -->
+        <div class="modal-body-custom text-center py-5" ng-if="loading.detail">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-3">Đang tải chi tiết...</p>
+        </div>
+
+        <!-- Order Detail Content -->
+        <div class="modal-body-custom" ng-if="!loading.detail && selectedOrder">
+          
+          <!-- Order Info Header -->
+          <div class="order-detail-header">
+            <div class="row">
+              <div class="col-md-6">
+                <h4>{{selectedOrder.orderNumber}}</h4>
+                <p class="text-muted mb-0">Đặt hàng lúc: {{formatDate(selectedOrder.createdAt)}}</p>
+              </div>
+              <div class="col-md-6 text-end">
+                <span class="badge badge-lg" ng-class="getStatusBadgeClass(selectedOrder.status)">
+                  {{getStatusLabel(selectedOrder.status)}}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tracking Timeline -->
+          <div class="tracking-timeline mt-4" ng-if="selectedOrder.trackingHistory && selectedOrder.trackingHistory.length > 0">
+            <h5 class="mb-3"><i class="icon-truck"></i> Lịch sử vận chuyển</h5>
+            <div class="timeline">
+              <div class="timeline-item" 
+                   ng-repeat="track in selectedOrder.trackingHistory"
+                   ng-class="{'timeline-'+track.status, 'active': $last}">
+                <div class="timeline-icon" ng-class="'icon-status-'+track.status">
+                  <i ng-if="track.status === 'pending'" class="icon-clock"></i>
+                  <i ng-if="track.status === 'confirmed'" class="icon-check"></i>
+                  <i ng-if="track.status === 'processing'" class="icon-settings"></i>
+                  <i ng-if="track.status === 'shipping'" class="icon-rocket"></i>
+                  <i ng-if="track.status === 'delivered'" class="icon-home"></i>
+                  <i ng-if="track.status === 'completed'" class="icon-badge"></i>
+                  <i ng-if="track.status === 'cancelled'" class="icon-close"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-status">
+                    <strong>{{getStatusLabel(track.status)}}</strong>
+                    <span class="timeline-time">{{formatDate(track.timestamp)}}</span>
+                  </div>
+                  <p class="timeline-description">{{track.description}}</p>
+                  <div class="timeline-meta">
+                    <span>
+                      <i class="icon-location-pin"></i> {{track.location}}
+                    </span>
+                    <span>
+                      <i class="icon-user"></i> {{track.updatedBy}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Items -->
+          <div class="order-items-detail mt-4">
+            <h5 class="mb-3"><i class="icon-bag"></i> Sản phẩm đã đặt</h5>
+            <div class="table-responsive">
+              <table class="table order-items-table">
+                <thead>
+                  <tr>
+                    <th width="35%">Sản phẩm</th>
+                    <th width="25%">Thông số</th>
+                    <th width="15%">Đơn giá</th>
+                    <th width="10%" class="text-center">SL</th>
+                    <th width="15%" class="text-end">Thành tiền</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="item in selectedOrder.items">
+                    <td>
+                      <div class="product-cell">
+                        <div class="product-image-wrapper">
+                          <img ng-src="{{item.imageUrl}}" 
+                               alt="{{item.productName}}"
+                               onerror="this.src='assets/images/product-image/placeholder.png'">
+                        </div>
+                        <div class="product-details">
+                          <strong class="product-name">{{item.productName}}</strong>
+                          <span class="product-type">{{item.productTypeName}}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="product-attributes">
+                        <span class="attribute-item" ng-repeat="(key, value) in item.attributes">
+                          <strong>{{key}}:</strong> {{value}}
+                        </span>
+                      </div>
+                    </td>
+                    <td class="price-cell">{{formatCurrency(item.price)}}</td>
+                    <td class="quantity-cell text-center">
+                      <span class="quantity-badge">{{item.quantity}}</span>
+                    </td>
+                    <td class="subtotal-cell text-end">{{formatCurrency(item.subtotal)}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Shipping & Payment Info -->
+          <div class="row mt-4">
+            <!-- Shipping Address -->
+            <div class="col-md-6">
+              <div class="info-box">
+                <h5><i class="icon-location-pin"></i> Địa chỉ giao hàng</h5>
+                <p class="mb-1"><strong>{{selectedOrder.shippingAddress.recipientName}}</strong></p>
+                <p class="mb-1">SĐT: {{selectedOrder.shippingAddress.phoneNumber}}</p>
+                <p class="mb-1">Email: {{selectedOrder.shippingAddress.email}}</p>
+                <p class="mb-0">{{selectedOrder.shippingAddress.fullAddress}}</p>
+              </div>
+              <div class="info-box mt-3" ng-if="selectedOrder.note">
+                <h5><i class="icon-note"></i> Ghi chú</h5>
+                <p class="mb-0">{{selectedOrder.note}}</p>
+              </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="col-md-6">
+              <div class="info-box order-summary-box">
+                <h5><i class="icon-calculator"></i> Thanh toán</h5>
+                <div class="summary-row">
+                  <span>Tạm tính:</span>
+                  <span>{{formatCurrency(selectedOrder.subtotal)}}</span>
+                </div>
+                <div class="summary-row">
+                  <span>Phí vận chuyển:</span>
+                  <span>{{formatCurrency(selectedOrder.shippingFee)}}</span>
+                </div>
+                <div class="summary-row" ng-if="selectedOrder.discount > 0">
+                  <span>Giảm giá:</span>
+                  <span class="text-danger">-{{formatCurrency(selectedOrder.discount)}}</span>
+                </div>
+                <hr>
+                <div class="summary-row total">
+                  <span><strong>Tổng cộng:</strong></span>
+                  <strong class="text-primary">{{formatCurrency(selectedOrder.totalAmount)}}</strong>
+                </div>
+                <hr>
+                <div class="summary-row">
+                  <span>Phương thức thanh toán:</span>
+                  <span>{{getPaymentMethodLabel(selectedOrder.paymentMethod)}}</span>
+                </div>
+                <div class="summary-row">
+                  <span>Trạng thái thanh toán:</span>
+                  <span ng-class="{'text-success': selectedOrder.paymentStatus === 'paid', 'text-warning': selectedOrder.paymentStatus === 'unpaid'}">
+                    {{getPaymentStatusLabel(selectedOrder.paymentStatus)}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer-custom">
+          <button class="btn btn-outline-danger" 
+                  ng-if="canCancelOrder(selectedOrder)"
+                  ng-click="cancelOrder(selectedOrder.id)"
+                  ng-disabled="loading.canceling">
+            <i class="icon-close"></i> Hủy đơn hàng
+          </button>
+          <button class="btn btn-secondary" ng-click="closeDetailModal()">Đóng</button>
+        </div>
+
       </div>
     </div>
-    <!-- checkout area end -->
+    <!-- Order Detail Modal End -->
+
+      </div>
+    </div>
+    <!-- Orders Management Area End -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for Orders Page -->
+    <style>
+      /* Global Styles */
+      .orders-area {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #2c3e50;
+        background: #f5f7fa;
+      }
+      
+      .page-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 8px;
+      }
+      
+      /* Buttons */
+      .btn {
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      
+      .btn-sm {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+      
+      .btn-outline-primary {
+        background: white;
+        color: #007bff;
+        border: 1.5px solid #007bff;
+      }
+      
+      .btn-outline-primary:hover {
+        background: #007bff;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+      }
+      
+      .btn-outline-danger {
+        background: white;
+        color: #dc3545;
+        border: 1.5px solid #dc3545;
+      }
+      
+      .btn-outline-danger:hover {
+        background: #dc3545;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+      }
+      
+      .btn-primary {
+        background: #007bff;
+        color: white;
+        border: none;
+      }
+      
+      .btn-primary:hover {
+        background: #0056b3;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+      }
+      
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+        border: none;
+      }
+      
+      .btn-secondary:hover {
+        background: #5a6268;
+      }
+
+      /* Order Status Tabs */
+      .order-status-tabs {
+        position: relative;
+        margin-bottom: 8px;
+      }
+      
+      .status-tabs-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      
+      .status-tab {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        background: #f8f9fa;
+        color: #495057;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        outline: none;
+        white-space: nowrap;
+      }
+      
+      .status-tab:hover {
+        background: #e9ecef;
+        border-color: #007bff;
+        color: #007bff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+      }
+      
+      .status-tab.active {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+        color: white !important;
+        border-color: #007bff !important;
+        box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      .status-tab.active:hover {
+        box-shadow: 0 8px 24px rgba(0, 123, 255, 0.5);
+        transform: translateY(-3px);
+      }
+      
+      .tab-label {
+        font-size: 15px;
+        letter-spacing: 0.3px;
+        color: inherit;
+      }
+      
+      .status-tab.active .tab-label {
+        color: white !important;
+      }
+      
+      .tab-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 28px;
+        height: 28px;
+        padding: 0 10px;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 14px;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 1;
+        color: inherit;
+      }
+      
+      .status-tab.active .tab-count {
+        background: rgba(255, 255, 255, 0.25) !important;
+        color: white !important;
+      }
+      
+      .status-tab:not(.active) .tab-count {
+        background: white;
+        color: #495057;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Search Box */
+      .search-box {
+        position: relative;
+      }
+      
+      .search-box input {
+        padding: 12px 20px 12px 45px;
+        border-radius: 10px;
+        border: 2px solid #e1e8ed;
+        font-size: 14px;
+        transition: all 0.3s;
+        width: 100%;
+      }
+      
+      .search-box input:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+      }
+      
+      .search-box i {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #6c757d;
+        font-size: 16px;
+      }
+
+      /* Order Card */
+      .order-card {
+        background: white;
+        border: 1px solid #e1e8ed;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      }
+      
+      .order-card:hover {
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
+      }
+      
+      .order-card-header {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        padding: 18px 24px;
+        border-bottom: 1px solid #e1e8ed;
+      }
+      
+      .order-number {
+        color: #1a1a1a;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      
+      .order-card-body {
+        padding: 24px;
+      }
+      
+      .order-card-body .row {
+        margin-left: -12px;
+        margin-right: -12px;
+      }
+      
+      .order-card-body .row > [class*='col-'] {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      
+      .order-products {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      /* Product Item */
+      .product-item-wrapper {
+        margin-bottom: 16px;
+      }
+      
+      .product-item-wrapper:last-child {
+        margin-bottom: 0;
+      }
+      
+      .product-item {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background: #fafbfc;
+        border-radius: 12px;
+        border: 2px solid #e1e8ed;
+        transition: all 0.3s ease;
+      }
+      
+      .product-item:hover {
+        border-color: #007bff;
+        box-shadow: 0 4px 16px rgba(0, 123, 255, 0.1);
+        transform: translateY(-2px);
+      }
+      
+      .product-thumb-wrapper {
+        flex-shrink: 0;
+      }
+      
+      .product-thumb {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #e1e8ed;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: block;
+      }
+      
+      .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .product-name {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 0;
+        color: #1a1a1a;
+        line-height: 1.4;
+        letter-spacing: -0.3px;
+      }
+      
+      .product-specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      
+      .spec-item {
+        font-size: 14px;
+        color: #495057;
+        padding: 6px 12px;
+        background: white;
+        border-radius: 6px;
+        border: 1px solid #e1e8ed;
+      }
+      
+      .spec-item strong {
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+      
+      .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+        border-top: 1px solid #e1e8ed;
+      }
+      
+      .product-quantity {
+        font-size: 15px;
+        color: #495057;
+        font-weight: 500;
+      }
+      
+      .product-quantity i {
+        color: #007bff;
+        margin-right: 6px;
+      }
+      
+      .product-quantity strong {
+        color: #1a1a1a;
+        font-weight: 700;
+      }
+      .product-price {
+        text-align: right;
+        color: #007bff;
+        font-weight: 800;
+        font-size: 18px;
+        letter-spacing: -0.5px;
+      }
+
+      /* Order Summary */
+      .order-summary {
+        background: #f8f9fa;
+        padding: 24px;
+        border-radius: 12px;
+        border: 2px solid #e1e8ed;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .order-summary > div:first-child {
+        flex-grow: 1;
+      }
+      
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 14px;
+        font-size: 15px;
+        color: #495057;
+      }
+      
+      .summary-row strong {
+        color: #1a1a1a;
+      }
+      
+      .order-summary hr {
+        margin: 16px 0;
+        border: none;
+        border-top: 2px solid #e1e8ed;
+      }
+      
+      .summary-row.total {
+        font-size: 20px;
+        font-weight: 700;
+        color: #007bff;
+        margin-top: 0;
+        padding: 16px;
+        margin-left: -24px;
+        margin-right: -24px;
+        background: white;
+        border-radius: 8px;
+        margin-bottom: 16px;
+      }
+
+      /* Shipping Address Compact */
+      .shipping-address-compact {
+        background: #f8f9fa;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        border: 1px solid #e1e8ed;
+      }
+      
+      .shipping-address-compact i {
+        color: #007bff;
+        margin-right: 8px;
+        font-size: 16px;
+      }
+
+      /* Status Badges */
+      .badge {
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+      
+      .badge-warning { 
+        background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+        color: #333;
+        box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+      }
+      
+      .badge-info { 
+        background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        color: white;
+        box-shadow: 0 2px 4px rgba(23, 162, 184, 0.3);
+      }
+      
+      .badge-primary { 
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+      }
+      
+      .badge-purple { 
+        background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+        color: white;
+        box-shadow: 0 2px 4px rgba(111, 66, 193, 0.3);
+      }
+      
+      .badge-success { 
+        background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        color: white;
+        box-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+      }
+      
+      .badge-danger { 
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        color: white;
+        box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+      }
+      
+      .badge-lg { 
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      /* Modal */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        overflow-y: auto;
+        animation: fadeIn 0.3s ease;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      .modal-content-custom {
+        background: white;
+        border-radius: 16px;
+        max-width: 1000px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: slideUp 0.3s ease;
+      }
+      
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .modal-header-custom {
+        padding: 24px 32px;
+        border-bottom: 2px solid #e1e8ed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background: white;
+        z-index: 10;
+      }
+      
+      .modal-header-custom h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin: 0;
+      }
+      
+      .close-btn {
+        background: #f8f9fa;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        color: #6c757d;
+        line-height: 1;
+      }
+      
+      .close-btn:hover {
+        background: #dc3545;
+        color: white;
+        transform: rotate(90deg);
+      }
+      .modal-body-custom {
+        padding: 32px;
+        background: #fafbfc;
+        max-height: calc(90vh - 160px);
+        overflow-y: auto;
+      }
+      
+      .modal-footer-custom {
+        padding: 24px 32px;
+        border-top: 2px solid #e1e8ed;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        position: sticky;
+        bottom: 0;
+        background: white;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Tracking Timeline */
+      .tracking-timeline {
+        background: white;
+        padding: 24px;
+        padding-bottom: 40px;
+        border-radius: 12px;
+        border: 2px solid #e1e8ed;
+        margin-bottom: 30px;
+      }
+      
+      .timeline {
+        position: relative;
+        padding-left: 0;
+        margin-left: 60px;
+      }
+      
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: -37px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #28a745 0%, #007bff 50%, #e1e8ed 100%);
+        border-radius: 2px;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+      }
+      
+      .timeline-item {
+        position: relative;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        clear: both;
+      }
+      
+      .timeline-item:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      .timeline-icon {
+        position: absolute;
+        left: -60px;
+        top: 0;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid #007bff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #007bff;
+        box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15), 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+      
+      /* Icon colors for different statuses - Pending (Chờ xác nhận) */
+      .timeline-item.timeline-pending .timeline-icon {
+        border-color: #ffc107;
+        color: #ffc107;
+        background: #fff8e1;
+        box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.15), 0 2px 8px rgba(255, 193, 7, 0.2);
+      }
+      
+      /* Confirmed (Đã xác nhận) */
+      .timeline-item.timeline-confirmed .timeline-icon {
+        border-color: #17a2b8;
+        color: #17a2b8;
+        background: #e0f7fa;
+        box-shadow: 0 0 0 4px rgba(23, 162, 184, 0.15), 0 2px 8px rgba(23, 162, 184, 0.2);
+      }
+      
+      /* Processing (Đang xử lý) */
+      .timeline-item.timeline-processing .timeline-icon {
+        border-color: #fd7e14;
+        color: #fd7e14;
+        background: #fff3e0;
+        box-shadow: 0 0 0 4px rgba(253, 126, 20, 0.15), 0 2px 8px rgba(253, 126, 20, 0.2);
+      }
+      
+      /* Shipping (Đang giao) */
+      .timeline-item.timeline-shipping .timeline-icon {
+        border-color: #007bff;
+        color: #007bff;
+        background: #e3f2fd;
+        box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15), 0 2px 8px rgba(0, 123, 255, 0.2);
+      }
+      
+      /* Delivered (Đã giao) */
+      .timeline-item.timeline-delivered .timeline-icon {
+        border-color: #28a745;
+        color: #28a745;
+        background: #e8f5e9;
+        box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.15), 0 2px 8px rgba(40, 167, 69, 0.2);
+      }
+      
+      /* Completed (Hoàn thành) */
+      .timeline-item.timeline-completed .timeline-icon {
+        border-color: #28a745;
+        background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        color: white;
+        box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.2), 0 4px 12px rgba(40, 167, 69, 0.3);
+      }
+      
+      /* Cancelled (Đã hủy) */
+      .timeline-item.timeline-cancelled .timeline-icon {
+        border-color: #dc3545;
+        color: #dc3545;
+        background: #ffebee;
+        box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15), 0 2px 8px rgba(220, 53, 69, 0.2);
+      }
+      
+      /* Active item animation */
+      .timeline-item.active .timeline-icon {
+        animation: pulse 2s infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15), 0 2px 8px rgba(0,0,0,0.1);
+        }
+        50% {
+          transform: scale(1.08);
+          box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.25), 0 4px 16px rgba(0,0,0,0.2);
+        }
+      }
+      
+      .timeline-marker {
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #666;
+      }
+      
+      .timeline-item.active .timeline-marker {
+        background: #007bff;
+        color: white;
+      }
+      
+      .timeline-content {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        border: 2px solid #e1e8ed;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+        position: relative;
+        width: 100%;
+        display: block;
+      }
+      
+      .timeline-content::before {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 18px;
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 10px solid #e1e8ed;
+      }
+      
+      .timeline-content:hover {
+        border-color: #007bff;
+        box-shadow: 0 4px 16px rgba(0, 123, 255, 0.15);
+        transform: translateX(4px);
+      }
+      
+      .timeline-content:hover::before {
+        border-right-color: #007bff;
+      }
+      
+      .timeline-status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      
+      .timeline-status strong {
+        font-weight: 700;
+        color: #1a1a1a;
+        font-size: 17px;
+      }
+      
+      .timeline-time {
+        font-size: 13px;
+        color: #6c757d;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      
+      .timeline-time::before {
+        content: '\f017';
+        font-family: 'FontAwesome';
+        font-size: 12px;
+      }
+      
+      .timeline-description {
+        margin-bottom: 8px;
+        color: #495057;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      
+      .timeline-location {
+        font-size: 13px;
+        margin-bottom: 0;
+        color: #6c757d;
+      }
+      
+      .timeline-meta {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 13px;
+        color: #6c757d;
+        padding-top: 12px;
+        margin-top: 12px;
+        border-top: 1px solid #f0f0f0;
+      }
+      
+      .timeline-meta span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      
+      .timeline-meta i {
+        font-size: 14px;
+        color: #007bff;
+      }
+
+      /* Info Box */
+      .info-box {
+        background: white;
+        padding: 24px;
+        border-radius: 12px;
+        border: 2px solid #e1e8ed;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+      
+      .info-box h5 {
+        margin-bottom: 18px;
+        color: #1a1a1a;
+        font-size: 18px;
+        font-weight: 700;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #e1e8ed;
+      }
+      
+      .order-summary-box .summary-row {
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+      }
+
+      /* Order Items Table */
+      .order-items-table {
+        margin-bottom: 0;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 2px solid #e1e8ed;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      
+      .order-items-table thead {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+      
+      .order-items-table thead th {
+        padding: 16px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid #e1e8ed;
+        border-right: 1px solid #e1e8ed;
+      }
+      
+      .order-items-table thead th:last-child {
+        border-right: none;
+      }
+      
+      .order-items-table tbody tr {
+        transition: all 0.3s;
+      }
+      
+      .order-items-table tbody tr:hover {
+        background: #f8f9fa;
+      }
+      
+      .order-items-table tbody td {
+        padding: 20px;
+        vertical-align: middle;
+        border-bottom: 1px solid #e1e8ed;
+        border-right: 1px solid #e1e8ed;
+        font-size: 14px;
+      }
+      
+      .order-items-table tbody td:last-child {
+        border-right: none;
+      }
+      
+      .order-items-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      
+      /* Product Cell in Table */
+      .product-cell {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      
+      .product-image-wrapper {
+        flex-shrink: 0;
+      }
+      
+      .product-cell img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #e1e8ed;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      
+      .product-details {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      
+      .product-cell .product-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1a1a1a;
+        line-height: 1.4;
+        display: block;
+      }
+      
+      .product-cell .product-type {
+        font-size: 13px;
+        color: #6c757d;
+        display: block;
+      }
+      
+      /* Product Attributes */
+      .product-attributes {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .attribute-item {
+        font-size: 13px;
+        color: #495057;
+        padding: 6px 10px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        display: inline-block;
+      }
+      
+      .attribute-item strong {
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+      
+      /* Price Cell */
+      .price-cell {
+        font-size: 15px;
+        font-weight: 600;
+        color: #495057;
+      }
+      
+      /* Quantity Cell */
+      .quantity-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+        height: 40px;
+        padding: 0 12px;
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        color: white;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 700;
+        box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+      }
+      
+      /* Subtotal Cell */
+      .subtotal-cell {
+        font-size: 17px;
+        font-weight: 800;
+        color: #007bff;
+        letter-spacing: -0.3px;
+      }
+
+      /* Empty State */
+      .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+        color: #6c757d;
+      }
+      
+      .empty-state i {
+        font-size: 64px;
+        color: #dee2e6;
+        margin-bottom: 20px;
+      }
+      
+      .empty-state h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #495057;
+        margin-bottom: 12px;
+      }
+      
+      .empty-state p {
+        font-size: 16px;
+        color: #6c757d;
+      }
+      
+      /* Loading State */
+      .loading-state {
+        text-align: center;
+        padding: 60px 20px;
+      }
+      
+      .loading-state i {
+        font-size: 48px;
+        color: #007bff;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .page-title {
+          font-size: 24px;
+        }
+        
+        .status-tabs-wrapper {
+          gap: 8px;
+          padding: 6px;
+        }
+        
+        .status-tab {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+        
+        .tab-label {
+          font-size: 13px;
+        }
+        
+        .tab-count {
+          min-width: 24px;
+          height: 24px;
+          padding: 0 8px;
+          font-size: 12px;
+        }
+        
+        .order-card-header,
+        .order-card-body,
+        .order-card-footer {
+          padding: 16px;
+        }
+        
+        .order-card-body .row > [class*='col-'] {
+          margin-bottom: 16px;
+        }
+        
+        .order-card-body .row > [class*='col-']:last-child {
+          margin-bottom: 0;
+        }
+        
+        .order-summary {
+          height: auto;
+        }
+        
+        .order-card-header .row > div {
+          text-align: center !important;
+          margin-bottom: 10px;
+        }
+        
+        .order-card-body .row {
+          flex-direction: column;
+        }
+        
+        .order-card-footer {
+          flex-direction: column;
+          gap: 10px;
+        }
+        
+        .order-card-footer .btn {
+          width: 100%;
+        }
+        
+        .order-items-table thead th {
+          padding: 12px 16px;
+          font-size: 12px;
+        }
+        
+        .order-items-table tbody td {
+          padding: 16px;
+          font-size: 13px;
+        }
+        
+        .product-cell {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        
+        .product-cell img {
+          width: 60px;
+          height: 60px;
+        }
+        
+        .attribute-item {
+          font-size: 12px;
+          padding: 5px 8px;
+        }
+        
+        .quantity-badge {
+          min-width: 36px;
+          height: 36px;
+          font-size: 14px;
+        }
+        
+        .product-item {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 16px;
+          padding: 16px;
+        }
+        
+        .product-thumb-wrapper {
+          width: 100%;
+        }
+        
+        .product-thumb {
+          width: 100%;
+          height: 200px;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        
+        .product-info {
+          width: 100%;
+        }
+        
+        .product-specs {
+          justify-content: center;
+        }
+        
+        .product-footer {
+          flex-direction: column;
+          gap: 10px;
+          text-align: center;
+        }
+        
+        .timeline {
+          margin-left: 50px;
+        }
+        
+        .timeline::before {
+          left: -30px;
+          width: 3px;
+        }
+        
+        .timeline-icon {
+          left: -52px;
+          width: 38px;
+          height: 38px;
+          font-size: 16px;
+        }
+        
+        .timeline-item {
+          margin-bottom: 25px;
+          padding-bottom: 20px;
+        }
+        
+        .timeline-marker {
+          left: -20px;
+          width: 30px;
+          height: 30px;
+          font-size: 14px;
+        }
+        
+        .modal-content-custom {
+          margin: 10px;
+          max-height: 95vh;
+        }
+        
+        .modal-header-custom,
+        .modal-body-custom,
+        .modal-footer-custom {
+          padding: 20px;
+        }
+      }
+      
+      /* Utility Classes */
+      .text-muted {
+        color: #6c757d !important;
+      }
+      
+      .text-primary {
+        color: #007bff !important;
+      }
+      
+      .text-success {
+        color: #28a745 !important;
+      }
+      
+      .font-weight-bold {
+        font-weight: 700 !important;
+      }
+      
+      .font-weight-semibold {
+        font-weight: 600 !important;
+      }
+      
+      .mb-0 { margin-bottom: 0 !important; }
+      .mb-2 { margin-bottom: 8px !important; }
+      .mb-3 { margin-bottom: 16px !important; }
+      .mb-4 { margin-bottom: 24px !important; }
+      
+      .mt-0 { margin-top: 0 !important; }
+      .mt-2 { margin-top: 8px !important; }
+      .mt-3 { margin-top: 16px !important; }
+      .mt-4 { margin-top: 24px !important; }
+    </style>
+
+    <!-- Orders Management Area End -->
+    
     <!-- Footer Area Start -->
     <div class="footer-area">
       <div class="footer-container">
@@ -1469,9 +2798,12 @@
     <!-- Use the minified version files listed below for better performance and remove the files listed above -->
     <script src="assets/js/vendor/vendor.min.js"></script>
     <script src="assets/js/plugins/plugins.min.js"></script>
+    <script src="../lib/angular.min.js"></script>
 
     <!-- Main Activation JS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/controller/ordersController.js"></script>
+
   </body>
 
   <!-- Mirrored from htmldemo.net/rozer/rozer/checkout.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 03 Jul 2024 02:13:27 GMT -->
