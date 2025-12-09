@@ -899,8 +899,21 @@ $(function () {
             });
         };
 
-        // Lấy số lượng item trong giỏ
+        // Lấy số lượng sản phẩm trong giỏ hàng từ API
         this.getCartCount = function() {
+            return HttpService.get('/cart/count').then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                return 0;
+            }).catch(function(error) {
+                console.error('Error getting cart count:', error);
+                return 0;
+            });
+        };
+
+        // Lấy số lượng item trong giỏ (từ cache)
+        this.getCartItemsCount = function() {
             return cart ? cart.totalItems : 0;
         };
 
@@ -1042,6 +1055,29 @@ $(function () {
     // ✅ ORDER SERVICE - Quản lý đơn hàng
     app.service('OrderService', function(HttpService) {
         var self = this;
+
+        // Tính phí vận chuyển
+        this.calculateShippingFee = function(shippingAddressId, subtotal) {
+            return HttpService.post('/orders/calculate-shipping-fee', {
+                shippingAddressId: shippingAddressId,
+                subtotal: subtotal
+            }).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to calculate shipping fee');
+            });
+        };
+
+        // Tạo đơn hàng mới
+        this.createOrder = function(orderData) {
+            return HttpService.post('/orders', orderData).then(function(response) {
+                if (response.data.code === 1000) {
+                    return response.data.result;
+                }
+                throw new Error(response.data.message || 'Failed to create order');
+            });
+        };
 
         // Lấy danh sách đơn hàng
         this.getOrders = function() {

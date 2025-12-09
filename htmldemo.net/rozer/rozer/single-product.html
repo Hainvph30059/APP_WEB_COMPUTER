@@ -46,17 +46,19 @@
       font-weight: 600;
       display: inline-block;
     }
+
     .in-stock {
       background-color: #d4edda;
       color: #155724;
       border: 1px solid #c3e6cb;
     }
+
     .out-of-stock {
       background-color: #f8d7da;
       color: #721c24;
       border: 1px solid #f5c6cb;
     }
-    
+
     /* Product Image Viewer */
     .product-image-viewer {
       border: none;
@@ -65,33 +67,33 @@
       background: #fff;
       padding: 15px;
     }
-    
+
     .main-product-image {
       width: 100%;
       height: auto;
       display: block;
       transition: opacity 0.3s ease;
     }
-    
+
     .main-product-image:hover {
       opacity: 0.95;
     }
-    
+
     /* Thumbnail Gallery */
     .product-dec-slider-2 {
       margin-top: 15px;
     }
-    
+
     .product-dec-slider-2 .swiper-slide {
       opacity: 0.6;
       transition: opacity 0.3s ease;
     }
-    
+
     .product-dec-slider-2 .swiper-slide.active-thumb,
     .product-dec-slider-2 .swiper-slide:hover {
       opacity: 1;
     }
-    
+
     .product-dec-slider-2 .swiper-slide a {
       display: block;
       padding: 3px;
@@ -100,24 +102,680 @@
       transition: all 0.3s ease;
       cursor: pointer;
     }
-    
+
     .product-dec-slider-2 .swiper-slide.active-thumb a {
       border-color: #5992c5;
       background-color: #f8f9fa;
     }
-    
+
     .product-dec-slider-2 .swiper-slide a:hover {
       border-color: #5992c5;
       transform: translateY(-2px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
     .product-dec-slider-2 .swiper-slide img {
       width: 100%;
       height: auto;
       display: block;
       border-radius: 2px;
       border: none;
+    }
+
+    /* Buy Now Button Styles */
+    .pro-details-buy-now {
+      margin-left: 15px;
+      display: inline-block;
+    }
+
+    .btn-buy-now {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+      color: white !important;
+      border: none !important;
+      padding: 13px 30px !important;
+      font-size: 14px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px;
+      border-radius: 5px !important;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4) !important;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1.5;
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    .btn-buy-now::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-buy-now:hover::before {
+      left: 100%;
+    }
+
+    .btn-buy-now:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 16px rgba(231, 76, 60, 0.6) !important;
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%) !important;
+      color: white !important;
+    }
+
+    .btn-buy-now:active {
+      transform: translateY(0) !important;
+      box-shadow: 0 2px 8px rgba(231, 76, 60, 0.5) !important;
+      color: white !important;
+    }
+
+    .btn-buy-now i {
+      margin-right: 8px;
+      font-size: 18px;
+      animation: rocketPulse 2s infinite;
+    }
+
+    @keyframes rocketPulse {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    /* Modal Styles - Modern Design */
+    .modal-content {
+      border-radius: 15px !important;
+      overflow: hidden;
+    }
+
+    .modal-header.bg-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-bottom: none;
+      padding: 20px 30px;
+    }
+
+    .modal-header .modal-title {
+      font-weight: 700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-header .btn-close-white {
+      filter: brightness(0) invert(1);
+      opacity: 1;
+    }
+
+    .modal-body {
+      background: #f8f9fa;
+    }
+
+    /* Product Info Card */
+    .product-info-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .product-image-wrapper {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .product-thumb-modal {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #f0f0f0;
+    }
+
+    .product-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+
+    .price-display {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 2px;
+    }
+
+    .price-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e74c3c;
+    }
+
+    /* Quantity Control - Modern Design */
+    .quantity-control {
+      text-align: right;
+    }
+
+    .quantity-label {
+      font-size: 12px;
+      color: #666;
+      display: block;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+
+    .quantity-input-group {
+      display: inline-flex;
+      align-items: center;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .qty-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: #f5f5f5;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .qty-btn:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .qty-btn:active {
+      transform: scale(0.95);
+    }
+
+    .qty-input {
+      width: 50px;
+      height: 36px;
+      border: none;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .qty-input:focus {
+      outline: none;
+    }
+
+    .stock-info {
+      display: block;
+      text-align: center;
+      margin-top: 5px;
+      color: #28a745;
+      font-size: 11px;
+    }
+
+    /* Form Sections */
+    .form-section {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-label-custom {
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    .form-label-custom i {
+      color: #667eea;
+      font-size: 16px;
+    }
+
+    @keyframes pulse-hint {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+    }
+
+    /* Address Selector Wrapper */
+    .address-selector-wrapper {
+      position: relative;
+    }
+
+    .address-dropdown-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 1;
+      color: #667eea;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .address-selector-wrapper:hover .address-dropdown-icon {
+      color: #764ba2;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .form-select-address {
+      width: 100%;
+      border: 2px solid #667eea;
+      border-radius: 10px;
+      padding: 12px 40px 12px 15px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
+    .form-select-address:hover {
+      border-color: #764ba2;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .form-select-address:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+      outline: none;
+      background: white;
+    }
+
+    .form-select-address option {
+      padding: 10px;
+      font-size: 14px;
+      background: white;
+      color: #333;
+    }
+
+    .form-select-address option:hover {
+      background: #f8f9ff;
+    }
+
+    /* Selected Address Card */
+    .selected-address-card {
+      margin-top: 15px;
+      background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+      border: 2px solid #e8ebff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+      animation: slideInUp 0.3s ease;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .address-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e8ebff;
+    }
+
+    .address-card-header i {
+      color: #667eea;
+      font-size: 16px;
+    }
+
+    .address-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #667eea;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .address-card-body {
+      line-height: 1.6;
+    }
+
+    .address-recipient {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .address-recipient strong {
+      font-size: 15px;
+      color: #333;
+    }
+
+    .address-phone {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .badge-default {
+      background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+      color: white;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .badge-default::before {
+      content: "⭐";
+      font-size: 10px;
+    }
+
+    .address-full {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .form-control-custom {
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control-custom:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      outline: none;
+    }
+
+    .alert-sm {
+      padding: 12px 15px;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    /* Payment Options - Modern Radio Cards */
+    .payment-options-compact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .payment-radio-card {
+      position: relative;
+      cursor: pointer;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 15px;
+      transition: all 0.3s ease;
+      background: white;
+      display: block;
+    }
+
+    .payment-radio-card input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .payment-radio-card:hover {
+      border-color: #667eea;
+      background: #f8f9ff;
+    }
+
+    .payment-radio-card.active {
+      border-color: #667eea;
+      background: linear-gradient(135deg, #f8f9ff 0%, #e8ebff 100%);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+    }
+
+    .payment-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .payment-icon {
+      font-size: 24px;
+      color: #667eea;
+    }
+
+    .payment-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .payment-desc {
+      font-size: 11px;
+      color: #666;
+    }
+
+    /* Order Summary - Modern Design */
+    .order-summary-modern {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .summary-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      font-size: 14px;
+    }
+
+    .summary-label {
+      color: #666;
+    }
+
+    .summary-value {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .summary-divider {
+      height: 1px;
+      background: #e0e0e0;
+      margin: 10px 0;
+    }
+
+    .summary-total {
+      padding: 15px 0 0 0;
+      font-size: 16px;
+    }
+
+    .summary-total .summary-label {
+      font-weight: 700;
+      color: #333;
+    }
+
+    .total-price {
+      font-size: 22px;
+      font-weight: 700;
+      color: #e74c3c !important;
+    }
+
+    /* Modal Footer Buttons */
+    .modal-footer {
+      background: white;
+      gap: 10px;
+    }
+
+    .btn-cancel {
+      background: #f5f5f5;
+      color: #666;
+      border: none;
+      padding: 12px 25px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cancel:hover {
+      background: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-confirm-order {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%) !important;
+      color: white !important;
+      border: none !important;
+      padding: 12px 30px !important;
+      font-weight: 700 !important;
+      border-radius: 8px !important;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4) !important;
+    }
+
+    .btn-confirm-order:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6) !important;
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%) !important;
+    }
+
+    .btn-confirm-order:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-confirm-order i {
+      margin-right: 5px;
+    }
+
+    .fa-spin {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Success Modal */
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: successPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .success-icon i {
+      font-size: 40px;
+      color: white;
+    }
+
+    @keyframes successPop {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .order-success-summary {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pro-details-buy-now {
+        margin-left: 0;
+        margin-top: 10px;
+        display: block;
+      }
+
+      .btn-buy-now {
+        width: 100%;
+        padding: 14px 30px;
+      }
     }
   </style>
 </head>
@@ -218,8 +876,7 @@
                   <a href="compare.html" class="shuffle" data-number="3"><i class="icon-shuffle"></i></a>
                   <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
                       class="icon-heart"></i></a>
-                  <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i
-                      class="icon-bag"></i><span>$20.00</span></a>
+                  <a href="cart.html" class="bag" ng-attr-data-number="{{cartCount}}"><i class="icon-bag"></i></a>
                 </div>
               </div>
             </div>
@@ -330,8 +987,7 @@
               <a href="compare.html" class="shuffle d-xs-none" data-number="3"><i class="icon-shuffle"></i></a>
               <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i
                   class="icon-heart"></i></a>
-              <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i
-                  class="icon-bag"></i><span>$20.00</span></a>
+              <a href="cart.html" class="bag" ng-attr-data-number="{{cartCount}}"><i class="icon-bag"></i></a>
             </div>
             <div class="mobile-menu-toggle">
               <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
@@ -782,10 +1438,11 @@
             <!-- Thư viện ảnh thu nhỏ -->
             <div id="gallery" class="product-dec-slider-2 swiper-container">
               <div class="swiper-wrapper mt-1">
-                <div class="swiper-slide" ng-repeat="image in productDetails.ImageUrls" 
-                     ng-class="{'active-thumb': image === selectedImage}">
+                <div class="swiper-slide" ng-repeat="image in productDetails.ImageUrls"
+                  ng-class="{'active-thumb': image === selectedImage}">
                   <a href="javascript:void(0);" ng-click="selectImage(image)">
-                    <img class="img-responsive" style="border: none;" ng-src="{{image}}" alt="Thumbnail {{$index + 1}}" />
+                    <img class="img-responsive" style="border: none;" ng-src="{{image}}"
+                      alt="Thumbnail {{$index + 1}}" />
                   </a>
                 </div>
               </div>
@@ -796,8 +1453,10 @@
           <div class="product-details-content">
             <h2>{{productDetails.Name}}</h2>
             <p class="reference">Loại sản phẩm: <span>{{productDetails.ProductTypeName}}</span></p>
-            <p class="reference" ng-if="productDetails.attributes.Manufacturer">Nhà sản xuất: <span>{{productDetails.attributes.Manufacturer}}</span></p>
-            
+            <p class="reference" ng-if="productDetails.attributes.Manufacturer">Nhà sản xuất:
+              <span>{{productDetails.attributes.Manufacturer}}</span>
+            </p>
+
             <div class="pro-details-rating-wrap">
               <div class="rating-product">
                 <i class="ion-android-star"></i>
@@ -806,15 +1465,16 @@
                 <i class="ion-android-star"></i>
                 <i class="ion-android-star"></i>
               </div>
-              <span class="read-review"><a class="reviews" href="#">Lượt xem: {{productDetails.ViewCount || 0}}</a></span>
+              <span class="read-review"><a class="reviews" href="#">Lượt xem: {{productDetails.ViewCount ||
+                  0}}</a></span>
             </div>
-            
+
             <div class="pricing-meta">
               <ul>
                 <li class="old-price not-cut">{{productDetails.Price | number:0}} VNĐ</li>
               </ul>
             </div>
-            
+
             <div class="stock-status" ng-if="productDetails.Stock > 0">
               <span class="in-stock">✓ Còn hàng: {{productDetails.Stock}} sản phẩm</span>
             </div>
@@ -827,7 +1487,13 @@
                 <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
               </div>
               <div class="pro-details-cart btn-hover">
-                <a href="#"> Add To Cart</a>
+                <a href="javascript:void(0);" ng-click="addToCart(productDetails.id, 1, productDetails.name)"> Add To
+                  Cart</a>
+              </div>
+              <div class="pro-details-buy-now">
+                <button class="btn-buy-now" ng-click="openBuyNowModal()">
+                  <i class="icon-rocket"></i> MUA NGAY
+                </button>
               </div>
             </div>
             <div class="pro-details-wish-com">
@@ -897,15 +1563,18 @@
             <div class="product-specs-wrapper">
               <div class="row">
                 <!-- Each spec shown as a card; two columns on large screens, one on small -->
-                <div class="col-lg-6 col-md-12" ng-repeat="field in productFields" ng-if="productDetails.attributes[field]">
+                <div class="col-lg-6 col-md-12" ng-repeat="field in productFields"
+                  ng-if="productDetails.attributes[field]">
                   <div class="spec-card p-3 mb-3 border rounded h-100">
                     <div class="d-flex justify-content-between align-items-start">
                       <div class="spec-text">
                         <h6 class="mb-1" style="font-weight:700;color:#0f62ac;">{{ field }}</h6>
-                        <p class="mb-0 text-muted" style="word-break:break-word;">{{ productDetails.attributes[field] }}</p>
+                        <p class="mb-0 text-muted" style="word-break:break-word;">{{ productDetails.attributes[field] }}
+                        </p>
                       </div>
                       <div class="spec-actions ms-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary" ng-click="copySpec(field)" title="Copy value">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" ng-click="copySpec(field)"
+                          title="Copy value">
                           <i class="icon-docs"></i>
                         </button>
                       </div>
@@ -1096,7 +1765,8 @@
               <div class="add-to-link">
                 <ul>
                   <li class="cart">
-                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD TO CART</a>
+                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD
+                      TO CART</a>
                   </li>
                   <li>
                     <a href="wishlist.html"><i class="icon-heart"></i></a>
@@ -1176,7 +1846,8 @@
               <div class="add-to-link">
                 <ul>
                   <li class="cart">
-                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD TO CART</a>
+                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD
+                      TO CART</a>
                   </li>
                   <li>
                     <a href="wishlist.html"><i class="icon-heart"></i></a>
@@ -1488,6 +2159,213 @@
   </div>
   <!-- Footer Area End -->
   <!-- Modal end -->
+
+  <!-- Buy Now Modal -->
+  <div class="modal fade" id="buyNowModal" tabindex="-1" aria-labelledby="buyNowModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-gradient border-0">
+          <h5 class="modal-title" id="buyNowModalLabel">
+            <i class="icon-rocket"></i> Xác nhận đơn hàng
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <!-- Product Info Card -->
+          <div class="product-info-card mb-4">
+            <div class="d-flex align-items-center">
+              <div class="product-image-wrapper">
+                <img ng-src="{{productDetails.ImageUrls[0]}}" alt="{{productDetails.Name}}" class="product-thumb-modal">
+              </div>
+              <div class="ms-3 flex-grow-1">
+                <h6 class="product-name mb-2">{{productDetails.Name}}</h6>
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="price-display">
+                    <span class="price-label">Đơn giá:</span>
+                    <span class="price-value">{{formatCurrency(productDetails.Price)}}</span>
+                  </div>
+                  <div class="quantity-control">
+                    <label class="quantity-label">Số lượng</label>
+                    <div class="quantity-input-group">
+                      <button class="qty-btn minus"
+                        ng-click="buyNowQuantity = buyNowQuantity > 1 ? buyNowQuantity - 1 : 1">
+                        <i class="icon-minus"></i>
+                      </button>
+                      <input type="number" class="qty-input" ng-model="buyNowQuantity" min="1"
+                        max="{{productDetails.Stock}}">
+                      <button class="qty-btn plus"
+                        ng-click="buyNowQuantity = buyNowQuantity < productDetails.Stock ? buyNowQuantity + 1 : productDetails.Stock">
+                        <i class="icon-plus"></i>
+                      </button>
+                    </div>
+                    <small class="stock-info">Còn {{productDetails.Stock}} sản phẩm</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Address -->
+          <div class="form-section mb-4">
+            <label class="form-label-custom">
+              <i class="icon-location-pin"></i> Địa chỉ giao hàng
+            </label>
+            <div ng-if="shippingAddresses.length === 0" class="alert alert-warning alert-sm">
+              <i class="icon-info"></i> Bạn chưa có địa chỉ giao hàng.
+              <a href="my-account.html" class="alert-link">Thêm địa chỉ ngay</a>
+            </div>
+            <div ng-if="shippingAddresses.length > 0">
+              <div class="address-selector-wrapper">
+                <div class="address-dropdown-icon">
+                  <i class="icon-arrow-down"></i>
+                </div>
+                <select class="form-select form-select-address" ng-model="selectedAddressId"
+                  ng-change="onAddressSelected(selectedAddressId)">
+                  <option ng-repeat="address in shippingAddresses" ng-value="address.id">
+                    {{address.recipientName}} - {{address.phoneNumber}} | {{address.wardName}},
+                    {{address.districtName}}{{address.isDefault ? ' ⭐' : ''}}
+                  </option>
+                </select>
+              </div>
+              <div class="selected-address-card" ng-if="selectedAddressId">
+                <div class="address-card-header">
+                  <i class="icon-location-pin"></i>
+                  <span class="address-card-title">Địa chỉ nhận hàng</span>
+                </div>
+                <div class="address-card-body" ng-repeat="addr in shippingAddresses"
+                  ng-if="addr.id === selectedAddressId">
+                  <div class="address-recipient">
+                    <strong>{{addr.recipientName}}</strong>
+                    <span class="address-phone">| {{addr.phoneNumber}}</span>
+                    <span ng-if="addr.isDefault" class="badge-default">Mặc định</span>
+                  </div>
+                  <div class="address-full">
+                    {{addr.fullAddress}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="form-section mb-4">
+            <label class="form-label-custom">
+              <i class="icon-wallet"></i> Phương thức thanh toán
+            </label>
+            <div class="payment-options-compact">
+              <label class="payment-radio-card" ng-class="{'active': selectedPaymentMethod === 'COD'}">
+                <input type="radio" name="paymentMethod" ng-model="selectedPaymentMethod" value="COD">
+                <div class="payment-content">
+                  <i class="icon-wallet payment-icon"></i>
+                  <div>
+                    <div class="payment-title">COD</div>
+                    <small class="payment-desc">Thanh toán khi nhận hàng</small>
+                  </div>
+                </div>
+              </label>
+              <label class="payment-radio-card" ng-class="{'active': selectedPaymentMethod === 'BANK_TRANSFER'}">
+                <input type="radio" name="paymentMethod" ng-model="selectedPaymentMethod" value="BANK_TRANSFER">
+                <div class="payment-content">
+                  <i class="icon-credit-card payment-icon"></i>
+                  <div>
+                    <div class="payment-title">Chuyển khoản</div>
+                    <small class="payment-desc">Ngân hàng</small>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Note -->
+          <div class="form-section mb-4">
+            <label class="form-label-custom">
+              <i class="icon-note"></i> Ghi chú đơn hàng (tùy chọn)
+            </label>
+            <textarea class="form-control form-control-custom" rows="2" ng-model="orderNote"
+              placeholder="Ví dụ: Giao giờ hành chính, gọi trước 15 phút..."></textarea>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="order-summary-modern">
+            <h6 class="summary-title">Chi tiết thanh toán</h6>
+            <div class="summary-row">
+              <span class="summary-label">Tạm tính</span>
+              <span class="summary-value">{{formatCurrency(calculateSubtotal())}}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Phí vận chuyển</span>
+              <span class="summary-value"
+                ng-if="!isCalculatingShipping && shippingFee > 0">{{formatCurrency(shippingFee)}}</span>
+              <span class="summary-value text-muted" ng-if="isCalculatingShipping">
+                <i class="icon-refresh fa-spin"></i> Đang tính...
+              </span>
+              <span class="summary-value text-muted" ng-if="!isCalculatingShipping && shippingFee === 0">
+                Chưa xác định
+              </span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row summary-total">
+              <span class="summary-label">Tổng cộng</span>
+              <span class="summary-value total-price">{{formatCurrency(calculateTotal())}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0 pb-4 px-4">
+          <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">
+            <i class="icon-close"></i> Hủy
+          </button>
+          <button type="button" class="btn btn-confirm-order" ng-click="confirmBuyNow()"
+            ng-disabled="isCreatingOrder || !selectedAddressId">
+            <span ng-if="!isCreatingOrder"><i class="icon-check"></i> Đặt hàng ngay</span>
+            <span ng-if="isCreatingOrder"><i class="icon-refresh fa-spin"></i> Đang xử lý...</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success Modal -->
+  <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center">
+        <div class="modal-body p-5">
+          <div class="success-icon mb-4">
+            <i class="icon-check"></i>
+          </div>
+          <h3 class="mb-3">Đặt hàng thành công!</h3>
+          <p class="mb-2">Mã đơn hàng: <strong>{{createdOrder.orderNumber}}</strong></p>
+          <p class="text-muted mb-4">Đơn hàng của bạn đã được ghi nhận. Chúng tôi sẽ liên hệ để xác nhận trong thời gian
+            sớm nhất.</p>
+
+          <div class="order-success-summary">
+            <div class="d-flex justify-content-between mb-2">
+              <span>Tổng tiền:</span>
+              <strong class="text-danger">{{formatCurrency(createdOrder.totalAmount)}}</strong>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Trạng thái:</span>
+              <span class="badge bg-warning">{{createdOrder.status}}</span>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span>Thanh toán:</span>
+              <span>{{createdOrder.paymentMethod}}</span>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <button type="button" class="btn btn-primary me-2" ng-click="viewOrderDetail(createdOrder.id)">
+              Xem đơn hàng
+            </button>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Tiếp tục mua sắm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- JS
 ============================================ -->
 

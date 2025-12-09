@@ -99,8 +99,8 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="logo">
-                            <a href="../../../index.html"><img class="img-responsive" src="assets/images/logo/computer.jpg"
-                                    alt="favicon.png" /></a>
+                            <a href="../../../index.html"><img class="img-responsive"
+                                    src="assets/images/logo/computer.jpg" alt="favicon.png" /></a>
                         </div>
                     </div>
                     <div class="col-md-10 align-self-center">
@@ -141,8 +141,8 @@
                                             class="icon-shuffle"></i></a>
                                     <a href="#offcanvas-wishlist" class="heart offcanvas-toggle" data-number="3"><i
                                             class="icon-heart"></i></a>
-                                    <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i
-                                            class="icon-bag"></i><span>$20.00</span></a>
+                                    <a href="cart.html" class="bag" ng-attr-data-number="{{cartCount}}"><i
+                                            class="icon-bag"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -260,8 +260,8 @@
                                     class="icon-shuffle"></i></a>
                             <a href="#offcanvas-wishlist" class="heart offcanvas-toggle d-xs-none" data-number="3"><i
                                     class="icon-heart"></i></a>
-                            <a href="#offcanvas-cart" class="bag offcanvas-toggle" data-number="3"><i
-                                    class="icon-bag"></i><span>$20.00</span></a>
+                            <a href="cart.html" class="bag" ng-attr-data-number="{{cartCount}}"><i
+                                    class="icon-bag"></i></a>
                         </div>
                         <div class="mobile-menu-toggle">
                             <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
@@ -819,24 +819,73 @@
                                                     }
 
                                                     /* Product card styles */
-                                                    .product-card{ border:1px solid #eef0f3; border-radius:8px; box-shadow:0 2px 6px rgba(16,24,40,0.04); transition:transform .12s ease, box-shadow .12s ease; background:#fff; }
-                                                    .product-card:hover{ transform:translateY(-4px); box-shadow:0 8px 20px rgba(16,24,40,0.12); }
-                                                    .product-media{ height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-                                                    .product-img{ max-width:100%; max-height:100%; object-fit:contain; }
-                                                    .product-title{ font-size:1.25rem; margin:0; line-height:1.2; color:#000; font-weight:600; }
-                                                    .product-desc{ font-size:0.9rem; min-height:42px; color:#222; }
-                                                    .product-price{ color:#000; font-size:1rem; font-weight:500; }
-                                                    .product-card .btn{ padding:0.5rem 0.6rem; }
+                                                    .product-card {
+                                                        border: 1px solid #eef0f3;
+                                                        border-radius: 8px;
+                                                        box-shadow: 0 2px 6px rgba(16, 24, 40, 0.04);
+                                                        transition: transform .12s ease, box-shadow .12s ease;
+                                                        background: #fff;
+                                                    }
+
+                                                    .product-card:hover {
+                                                        transform: translateY(-4px);
+                                                        box-shadow: 0 8px 20px rgba(16, 24, 40, 0.12);
+                                                    }
+
+                                                    .product-media {
+                                                        height: 220px;
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: center;
+                                                        overflow: hidden;
+                                                    }
+
+                                                    .product-img {
+                                                        max-width: 100%;
+                                                        max-height: 100%;
+                                                        object-fit: contain;
+                                                    }
+
+                                                    .product-title {
+                                                        font-size: 1.25rem;
+                                                        margin: 0;
+                                                        line-height: 1.2;
+                                                        color: #000;
+                                                        font-weight: 600;
+                                                    }
+
+                                                    .product-desc {
+                                                        font-size: 0.9rem;
+                                                        min-height: 42px;
+                                                        color: #222;
+                                                    }
+
+                                                    .product-price {
+                                                        color: #000;
+                                                        font-size: 1rem;
+                                                        font-weight: 500;
+                                                    }
+
+                                                    .product-card .btn {
+                                                        padding: 0.5rem 0.6rem;
+                                                    }
 
                                                     /* 5 columns layout on large screens */
-                                                    @media (min-width:1200px){
-                                                        .product-col{ flex:0 0 20%; max-width:20%; }
+                                                    @media (min-width:1200px) {
+                                                        .product-col {
+                                                            flex: 0 0 20%;
+                                                            max-width: 20%;
+                                                        }
                                                     }
 
                                                     /* Ensure gutters align with bootstrap row */
-                                                    .product-col{ padding-left:12px; padding-right:12px; }
+                                                    .product-col {
+                                                        padding-left: 12px;
+                                                        padding-right: 12px;
+                                                    }
                                                 </style>
-                                                <div class="product-col col-md-4 col-sm-6 mb-4" ng-repeat="product in listProduct">
+                                                <div class="product-col col-md-4 col-sm-6 mb-4"
+                                                    ng-repeat="product in listProduct">
                                                     <article class="list-product"
                                                         style="border: 1px solid rgb(241, 237, 237)">
                                                         <div class="img-block">
@@ -951,7 +1000,9 @@
                                                         <div class="add-to-link">
                                                             <ul>
                                                                 <li class="cart">
-                                                                    <a class="cart-btn" href="javascript:void(0);" ng-click="addToCart(product.id, 1, product.name)">ADD TO CART</a>
+                                                                    <a class="cart-btn" href="javascript:void(0);"
+                                                                        ng-click="addToCart(product.id, 1, product.name)">ADD
+                                                                        TO CART</a>
                                                                 </li>
                                                                 <li>
                                                                     <a href="wishlist.html"><i

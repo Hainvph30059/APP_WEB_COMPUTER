@@ -3,6 +3,17 @@ angular.module('HoangDuongApp')
 .controller('productList', function ($scope, $http, Products, CartService) {
     // Tiêu đề
     $scope.title = "Danh sách sản phẩm";
+    $scope.cartCount = 0; // Khởi tạo số lượng giỏ hàng
+    
+    // Lấy số lượng sản phẩm trong giỏ hàng
+    $scope.loadCartCount = function() {
+        CartService.getCartCount().then(function(count) {
+            $scope.cartCount = count;
+        });
+    };
+    
+    // Gọi khi controller khởi tạo
+    $scope.loadCartCount();
 
     // Config
     const apiBase = 'http://localhost:8080/api/product/product-type-name/';
@@ -97,9 +108,8 @@ angular.module('HoangDuongApp')
                 
                 alert(message);
                 
-                if (window.updateCartBadge) {
-                    window.updateCartBadge(cart.totalItems);
-                }
+                // Cập nhật số lượng giỏ hàng
+                $scope.loadCartCount();
             })
             .catch(function(error) {
                 console.error('❌ Lỗi thêm vào giỏ hàng:', error);

@@ -1,9 +1,20 @@
 // Sử dụng module HoangDuongApp đã được định nghĩa trong main.js
 angular.module('HoangDuongApp')
-.controller('productDetail', function ($scope, $http, $sce, Products, CartService) {
+.controller('productDetail', function ($scope, $http, $sce, Products, CartService, OrderService, ShippingAddressService) {
     // Lấy tham số từ URL
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
+    $scope.cartCount = 0; // Khởi tạo số lượng giỏ hàng
+    
+    // Lấy số lượng sản phẩm trong giỏ hàng
+    $scope.loadCartCount = function() {
+        CartService.getCartCount().then(function(count) {
+            $scope.cartCount = count;
+        });
+    };
+    
+    // Gọi khi controller khởi tạo
+    $scope.loadCartCount();
     
     // API base URL
     const apiBaseUrl = "http://localhost:8080/api/product/";
@@ -198,6 +209,21 @@ angular.module('HoangDuongApp')
 
     // Thêm vào giỏ hàng
     $scope.addToCart = function(productId, quantity, productName) {
+        console.log('🛒 addToCart called with:', { productId, quantity, productName });
+        
+        if (!productId) {
+            console.error('❌ Product ID is missing!');
+            alert('Lỗi: Không tìm thấy ID sản phẩm');
+            return;
+        }
+        
+        if (!CartService) {
+            console.error('❌ CartService is not available!');
+            alert('Lỗi: Dịch vụ giỏ hàng không khả dụng');
+            return;
+        }
+        
+        console.log('📦 Calling CartService.addToCart...');
         CartService.addToCart(productId, quantity || 1)
             .then(function(cart) {
                 console.log('✅ Thêm vào giỏ hàng thành công:', cart);
@@ -208,14 +234,174 @@ angular.module('HoangDuongApp')
                 
                 alert(message);
                 
-                if (window.updateCartBadge) {
-                    window.updateCartBadge(cart.totalItems);
-                }
+                // Cập nhật số lượng giỏ hàng
+                $scope.loadCartCount();
             })
             .catch(function(error) {
                 console.error('❌ Lỗi thêm vào giỏ hàng:', error);
                 alert('Không thể thêm vào giỏ hàng. Vui lòng thử lại.');
             });
+    };
+    
+    // ========== BUY NOW - MUA NGAY ==========
+    $scope.buyNowQuantity = 1;
+    $scope.shippingAddresses = [];
+    $scope.selectedAddressId = null;
+    $scope.orderNote = '';
+    $scope.selectedPaymentMethod = 'COD';
+    $scope.isCreatingOrder = false;
+    $scope.shippingFee = 0;
+    $scope.isCalculatingShipping = false;
+    
+    // Tính phí vận chuyển
+    $scope.calculateShipping = function(addressId) {
+        if (!addressId) {
+            $scope.shippingFee = 0;
+            return;
+        }
+        
+        $scope.isCalculatingShipping = true;
+        var subtotal = $scope.calculateSubtotal();
+        
+        OrderService.calculateShippingFee(addressId, subtotal)
+            .then(function(fee) {
+                $scope.shippingFee = fee;
+                $scope.isCalculatingShipping = false;
+            })
+            .catch(function(error) {
+                console.error('❌ Lỗi tính phí ship:', error);
+                $scope.shippingFee = 0;
+                $scope.isCalculatingShipping = false;
+            });
+    };
+    
+    // Xử lý khi chọn địa chỉ
+    $scope.onAddressSelected = function(addressId) {
+        $scope.selectedAddressId = addressId;
+        $scope.calculateShipping(addressId);
+    };
+    
+    // Mở modal Buy Now
+    $scope.openBuyNowModal = function() {
+        if (!$scope.productDetails || !$scope.productDetails.id) {
+            alert('Thông tin sản phẩm chưa được tải. Vui lòng thử lại.');
+            return;
+        }
+        
+        // Reset shipping fee
+        $scope.shippingFee = 0;
+        
+        // Load danh sách địa chỉ
+        ShippingAddressService.getAddresses()
+            .then(function(addresses) {
+                $scope.shippingAddresses = addresses;
+                
+                // Tìm địa chỉ mặc định
+                var defaultAddress = addresses.find(function(addr) { return addr.isDefault; });
+                if (defaultAddress) {
+                    $scope.selectedAddressId = defaultAddress.id;
+                    $scope.calculateShipping(defaultAddress.id);
+                } else if (addresses.length > 0) {
+                    $scope.selectedAddressId = addresses[0].id;
+                    $scope.calculateShipping(addresses[0].id);
+                }
+                
+                // Mở modal bằng Bootstrap 5
+                var modal = new bootstrap.Modal(document.getElementById('buyNowModal'));
+                modal.show();
+            })
+            .catch(function(error) {
+                console.error('❌ Lỗi load địa chỉ:', error);
+                alert('Không thể tải danh sách địa chỉ. Bạn cần đăng nhập và thêm địa chỉ giao hàng.');
+            });
+    };
+    
+    // Xác nhận mua hàng
+    $scope.confirmBuyNow = function() {
+        if (!$scope.selectedAddressId) {
+            alert('Vui lòng chọn địa chỉ giao hàng!');
+            return;
+        }
+        
+        if ($scope.buyNowQuantity < 1) {
+            alert('Số lượng phải lớn hơn 0!');
+            return;
+        }
+        
+        if ($scope.isCreatingOrder) {
+            return; // Đang xử lý, không cho click lại
+        }
+        
+        $scope.isCreatingOrder = true;
+        
+        // Chuẩn bị dữ liệu đơn hàng
+        var orderData = {
+            shippingAddressId: $scope.selectedAddressId,
+            items: [
+                {
+                    productId: $scope.productDetails.id,
+                    quantity: parseInt($scope.buyNowQuantity),
+                    attributes: $scope.productDetails.attributes || {}
+                }
+            ],
+            paymentMethod: $scope.selectedPaymentMethod,
+            note: $scope.orderNote || ''
+        };
+        
+        // Gọi API tạo đơn hàng
+        OrderService.createOrder(orderData)
+            .then(function(order) {
+                $scope.isCreatingOrder = false;
+                
+                // Đóng modal
+                var modalElement = document.getElementById('buyNowModal');
+                var modal = bootstrap.Modal.getInstance(modalElement);
+                if (modal) {
+                    modal.hide();
+                }
+                
+                // Hiển thị modal success
+                $scope.createdOrder = order;
+                var successModal = new bootstrap.Modal(document.getElementById('orderSuccessModal'));
+                successModal.show();
+                
+                // Cập nhật số lượng giỏ hàng
+                $scope.loadCartCount();
+            })
+            .catch(function(error) {
+                $scope.isCreatingOrder = false;
+                console.error('❌ Lỗi tạo đơn hàng:', error);
+                alert('Không thể tạo đơn hàng. Vui lòng thử lại.\n' + (error.message || ''));
+            });
+    };
+    
+    // Format tiền tệ
+    $scope.formatCurrency = function(amount) {
+        if (!amount) return '0₫';
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+    };
+    
+    // Tính tổng tiền tạm tính
+    $scope.calculateSubtotal = function() {
+        if (!$scope.productDetails || !$scope.productDetails.Price) return 0;
+        return $scope.productDetails.Price * $scope.buyNowQuantity;
+    };
+    
+    // Tính tổng tiền cuối cùng
+    $scope.calculateTotal = function() {
+        return $scope.calculateSubtotal() + $scope.shippingFee;
+    };
+    
+    // Watch số lượng thay đổi để tính lại phí ship
+    $scope.$watch('buyNowQuantity', function(newVal, oldVal) {
+        if (newVal !== oldVal && $scope.selectedAddressId) {
+            $scope.calculateShipping($scope.selectedAddressId);
+        }
+    });
+    
+    // View order detail
+    $scope.viewOrderDetail = function(orderId) {
+        window.location.href = 'checkout.html?orderId=' + orderId;
     };
     
     // ========== KHỞI ĐỘNG ==========

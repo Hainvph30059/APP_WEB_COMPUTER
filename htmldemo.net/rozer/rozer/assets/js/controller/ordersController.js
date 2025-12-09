@@ -1,13 +1,24 @@
 (function() {
     'use strict';
 
-    angular.module('HoangDuongApp').controller('ordersController', function($scope, $timeout, OrderService) {
+    angular.module('HoangDuongApp').controller('ordersController', function($scope, $timeout, OrderService, CartService) {
 
         // ==================== INIT ====================
         $scope.orders = [];
         $scope.filteredOrders = [];
         $scope.selectedOrder = null;
         $scope.showDetailModal = false;
+        $scope.cartCount = 0; // Khởi tạo số lượng giỏ hàng
+        
+        // Lấy số lượng sản phẩm trong giỏ hàng
+        $scope.loadCartCount = function() {
+            CartService.getCartCount().then(function(count) {
+                $scope.cartCount = count;
+            });
+        };
+        
+        // Gọi khi controller khởi tạo
+        $scope.loadCartCount();
         
         $scope.loading = {
             orders: false,

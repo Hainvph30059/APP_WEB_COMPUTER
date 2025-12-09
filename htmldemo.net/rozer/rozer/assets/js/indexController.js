@@ -3,6 +3,18 @@ angular.module('HoangDuongApp')
 .controller('product', function ($scope, $http, $q, Products, CartService) {
   $scope.title = "Sản phẩm Laptop";
   $scope.productTypes = [];
+  $scope.cartCount = 0; // Khởi tạo số lượng giỏ hàng
+  
+  // Lấy số lượng sản phẩm trong giỏ hàng
+  $scope.loadCartCount = function() {
+    CartService.getCartCount().then(function(count) {
+      $scope.cartCount = count;
+    });
+  };
+  
+  // Gọi khi controller khởi tạo
+  $scope.loadCartCount();
+  
   $scope.hardwareTabs = [
     { id: 1, name: 'Motherboard', type: 'mainboard', products: [], scopeKey: 'listMotherboard' },
     { id: 2, name: 'Chip', type: 'cpu', products: [], scopeKey: 'listCpu' },
@@ -124,10 +136,8 @@ angular.module('HoangDuongApp')
         
         alert(message);
         
-        // Cập nhật badge
-        if (window.updateCartBadge) {
-          window.updateCartBadge(cart.totalItems);
-        }
+        // Cập nhật số lượng giỏ hàng
+        $scope.loadCartCount();
       })
       .catch(function(error) {
         console.error('❌ Lỗi thêm vào giỏ hàng:', error);
